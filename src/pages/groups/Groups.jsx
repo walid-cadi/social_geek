@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { images } from "../../constant";
+import { Images } from "../../constant";
 
 export const Groups = () => {
 
@@ -208,8 +208,8 @@ export const Groups = () => {
           </div>
         </div>
         <div className="flex flex-wrap gap-y-7 w-[70vw] justify-between">
-          {searchGroup &&
-            searchGroup.map((e, i) => (
+          {group &&
+            group.map((e, i) => (
               <>
                 <div className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
                   <div className="rounded-t-lg h-32 overflow-hidden">
@@ -222,7 +222,7 @@ export const Groups = () => {
                   <div className="w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
                     <img
                       className="object-cover object-center h-32"
-                      src={images[e.profil]}
+                      src={Images[e.profil]}
                       alt="Woman looking front"
                     />
                   </div>

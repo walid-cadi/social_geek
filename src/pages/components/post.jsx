@@ -106,7 +106,7 @@ export const Post = () => {
 
                     <div className="bg-transparent border-2 p-4 rounded-lg mt-2">
                         <textarea
-                            className="w-full bg-transparent outline-none"
+                            className="w-full bg-transparent outline-none "
                             placeholder="What's on your mind?"
                             rows="3"
                             value={postContent}
