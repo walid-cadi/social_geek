@@ -106,7 +106,7 @@ export const Post = () => {
 
                     <div className="bg-transparent border-2 p-4 rounded-lg mt-2">
                         <textarea
-                            className="w-full bg-transparent outline-none "
+                            className="w-full bg-transparent  border-none "
                             placeholder="What's on your mind?"
                             rows="3"
                             value={postContent}
@@ -137,7 +137,7 @@ export const Post = () => {
                                     type="date"
                                     value={publicationDate}
                                     onChange={handleDateChange}
-                                    className="ml-2"
+                                    className="ml-2 border-none"
                                 />
                             </label>
                         </div>
