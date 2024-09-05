@@ -7,7 +7,6 @@ export const Groups = () => {
   const [group, setGroup] = useState([]);
   const [searchGroup, setSearchGroup] = useState(group);
   
-  
   //* select image
   const handleImageChange = (e) => {
     setGroupCover(URL.createObjectURL(e.target.files[0]));
