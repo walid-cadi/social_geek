@@ -1,21 +1,33 @@
-
+import { Route, Routes } from "react-router-dom";
+import { MyProvider } from "./context";
 import "./index.css";
-import { Routes , Route} from 'react-router-dom';
-import Profilee from "./pages/profilee";
-import Settings from "./pages/settings";
+import SideBar from "./layouts/dashboard";
+import Navbar from "./layouts/navbar";
+import  Home from "./pages/home";
+import { Groups } from "./pages/groups/Groups";
+import Friend_request from "./pages/Friend Request/friend_request";
+
+
+
+
 function App() {
   
 return (
     <>
-      <Routes>
-        <Route path="/" element={<Profilee/>} />
-        <Route path="/setting" element={<Settings/>} />
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <div className="flex">
+        <SideBar />
+        <Routes>
+          <Route path="/home" element={<Home/>}/>
+          <Route path="/groups" element={<Groups/>}/>
+          <Route path="/friend_request" element={<Friend_request />} />
+        </Routes>
+      </div>
+    </div>
 
-      </Routes>
-    
     </>
   );
 }
 
 export default App;
-
