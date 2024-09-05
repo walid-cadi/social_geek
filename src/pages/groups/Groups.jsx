@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import { Images } from "../../constant";
 
 export const Groups = () => {
-
   const [groupName, setGroupName] = useState("");
   const [groupCover, setGroupCover] = useState();
   const [group, setGroup] = useState([]);
   const [searchGroup, setSearchGroup] = useState(group);
-
+  
+  
   //* select image
   const handleImageChange = (e) => {
     setGroupCover(URL.createObjectURL(e.target.files[0]));
   };
+
 
   const addGroup = () => {
     if (groupName) {
@@ -49,7 +50,6 @@ export const Groups = () => {
     }
   };
 
-
   return (
     <>
       <div className="w-full bg-[#f4f5f7] min-h-screen pt-10 flex flex-col items-center  gap-5 ">
@@ -73,7 +73,9 @@ export const Groups = () => {
                 />
               </svg>
               <input
-                onChange={(e)=>{handleSearch(e.target.value)}}
+                onChange={(e) => {
+                  handleSearch(e.target.value);
+                }}
                 type="text"
                 className="w-[15vw] border-0 border-blue-800 bg-blue-50 text-gray-700 p-3 rounded-lg custom-placeholder"
                 placeholder="Search here"
