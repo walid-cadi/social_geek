@@ -16,7 +16,7 @@ if (newProfile) {
   console.log(newProfile);
   console.log(dataProfile?.length -1);
 }
- 
+
 
 
 
