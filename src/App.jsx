@@ -1,8 +1,8 @@
 import "./index.css";
 import SideBar from "./layouts/dashboard";
 import Navbar from "./layouts/navbar";
-import RightBar from "./pages/components/rightbar";
-import { Home } from "./pages/home";
+import  Home from "./pages/home";
+
 
 
 function App() {
