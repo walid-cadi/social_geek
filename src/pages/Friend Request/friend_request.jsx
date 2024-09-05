@@ -20,8 +20,8 @@ const Friend_request = () => {
 
     const addFriend = (id) => {
         setFriend(change => ({ ...change, [id]: !change[id] }));
-        users.followers.push(id)
-        console.log(users);
+        // users.followers.push(id)
+        // console.log(users);
         
         
         
@@ -29,9 +29,9 @@ const Friend_request = () => {
     };
 
     return (
-        <div className='bg-[#edf0f4]'>
-            <div className='pt-10 flex justify-center items-center'>
-                <div className='bg-white flex justify-between shadow-xl w-[71vw] h-24 items-center p-10 rounded-lg'>
+        <div className='bg-[#edf0f4] w-[80%]'>
+            <div className='pt-10 flex justify-center items-center ps-8'>
+                <div className='bg-white flex justify-between shadow-xl w-[63vw] h-24 items-center p-10 rounded-lg'>
                     <div>
                         <h1 className='font-bold text-2xl text-blue-600'>Friends</h1>
                     </div>
@@ -50,9 +50,9 @@ const Friend_request = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-wrap w-[89vw] justify-center gap-9 pt-14 ps-36'>
+            <div className='flex flex-wrap w-[75vw] justify-center gap-9 pt-14 ps-20'>
                 {filter.map(user => (
-                    <div className='bg-white flex justify-center items-center shadow-lg gap-8 w-[20%] h-[35vh] rounded-lg'>
+                    <div className='bg-white flex justify-center items-center shadow-lg gap-8 w-[20%] h-[32vh] rounded-lg'>
                         <div className="flex flex-col items-center gap-3">
                             <div>
                                 <img src={user.picture.large} alt="" className='w-16 h-16 rounded-full' />

@@ -5,6 +5,7 @@ import SideBar from "./layouts/dashboard";
 import Navbar from "./layouts/navbar";
 import  Home from "./pages/home";
 import { Groups } from "./pages/groups/Groups";
+import Friend_request from "./pages/Friend Request/friend_request";
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home/>}/>
           <Route path="/groups" element={<Groups/>}/>
+          <Route path="/friend_request" element={<Friend_request />} />
         </Routes>
       </div>
     </div>
