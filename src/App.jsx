@@ -1,7 +1,9 @@
+import { MyProvider } from "./context";
 import "./index.css";
 import SideBar from "./layouts/dashboard";
 import Navbar from "./layouts/navbar";
 import  Home from "./pages/home";
+
 
 
 
