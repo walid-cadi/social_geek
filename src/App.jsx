@@ -1,22 +1,35 @@
 import { Route, Routes } from "react-router-dom";
 import { MyProvider } from "./context";
 import "./index.css";
+import SideBar from "./layouts/dashboard";
+import Navbar from "./layouts/navbar";
+import  Home from "./pages/home";
 import { Groups } from "./pages/groups/Groups";
-import Register from "./pages/authentication/register";
-import Login from "./pages/authentication/login";
-import Verification from "./pages/authentication/verification";
+import Friend_request from "./pages/Friend Request/friend_request";
+import Profil from "./pages/profil/profil";
+import Setting from "./pages/setting/setting";
+
+
+
 
 function App() {
-  return (
+  
+return (
     <>
-      <MyProvider>
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <div className="flex">
+        <SideBar />
         <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/verification" element={<Verification />} />
-          <Route path="/groups" element={<Groups />} />
+          <Route path="/home" element={<Home/>}/>
+          <Route path="/groups" element={<Groups/>}/>
+          <Route path="/friend_request" element={<Friend_request />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="/setting" element={<Setting />} />
         </Routes>
-      </MyProvider>
+      </div>
+    </div>
+
     </>
   );
 }

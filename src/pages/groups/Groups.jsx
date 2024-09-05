@@ -7,13 +7,8 @@ export const Groups = () => {
   const [groupCover, setGroupCover] = useState();
   const [group, setGroup] = useState([]);
   const [searchGroup, setSearchGroup] = useState(group);
-  const { dataProfile, setDataProfile } = MyAppContext();
-  const newProfile = dataProfile[dataProfile];
-  if (newProfile) {
-    setDataProfile(newProfile);
-    console.log(newProfile);
-    console.log(dataProfile?.length - 1);
-  }
+  
+  
   //* select image
   const handleImageChange = (e) => {
     setGroupCover(URL.createObjectURL(e.target.files[0]));
