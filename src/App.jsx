@@ -9,6 +9,7 @@ import Friend_request from "./pages/Friend Request/friend_request";
 import Profil from "./pages/profil/profil";
 import Setting from './pages/setting/setting'
 import ExploreStories from "./pages/exploreStories/exploreStories";
+import { GroupPage } from "./pages/groups/Group";
 
 
 function App() {
