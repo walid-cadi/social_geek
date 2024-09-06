@@ -1,25 +1,20 @@
 import React from 'react';
-import Profil from '../pages/profil/profil';
+import { Groups } from './groups/Groups';
 import Navbar from "../layouts/navbar"
 import SideBar from "../layouts/dashboard"
-const Profilee = () => {
+const Grouppage = () => {
     return (
         <>
-            
-           <div>
+            <div>
            <Navbar />
            <div className="flex">
            <SideBar />
-           <Profil  />
+           <Groups  />
            </div>
            
            </div>
-       
-           
-            
-          
         </>
     );
 }
 
-export default Profilee;
+export default Grouppage;
