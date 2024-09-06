@@ -1,63 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
-import { FiTv, FiAward, FiGlobe, FiZap, FiUser, FiInbox, FiHome, FiMapPin, FiYoutube, FiSettings, FiPieChart, FiMessageSquare } from 'react-icons/fi';
-=======
 import { FiTv, FiAward, FiGlobe, FiZap, FiUser, FiInbox, FiHome, FiMapPin, FiYoutube, FiSettings, FiPieChart, FiMessageSquare, FiShoppingBag, FiUsers, FiUserPlus } from 'react-icons/fi';
->>>>>>> main
 import { Link } from 'react-router-dom';
 
 export const SideBar = (props) => {
     return (
         <>
-<<<<<<< HEAD
-            
-            <nav className="w-[20%] h-[85vh] bg-white rounded-2xl shadow-lg p-4 mt-2 ms-5  ">
-      <div className="mb-4">
-        <div className="text-gray-500 font-semibold text-xs mb-2">New Feeds</div>
-        <ul>
-          <li className="flex items-center">
-            <a href="default.html" className="flex items-center text-gray-700">
-              <span className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full p-1 mb-2">
-                <FiTv className="text-white" />
-              </span>
-              <span className="ml-3">Newsfeed</span>
-            </a>
-          </li>
-          <li className="flex items-center mb-3">
-            <a href="default-badge.html" className="flex items-center text-gray-700">
-              <span className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-full p-1">
-                <FiAward className="text-white" />
-              </span>
-              <span className="ml-3">Badges</span>
-            </a>
-          </li>
-          <li className="flex items-center mb-3">
-            <a href="default-storie.html" className="flex items-center text-gray-700">
-              <span className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full p-1">
-                <FiGlobe className="text-white" />
-              </span>
-              <span className="ml-3">Explore Stories</span>
-            </a>
-          </li>
-          <li className="flex items-center mb-3">
-            <a href="default-group.html" className="flex items-center text-gray-700">
-              <span className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-pink-500 to-red-500 rounded-full p-1">
-                <FiZap className="text-white" />
-              </span>
-              <span className="ml-3">Popular Groups</span>
-            </a>
-          </li>
-          <li className="flex items-center mb-3">
-            <a href="user-page.html" className="flex items-center text-gray-700">
-              <span className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full p-1">
-                <FiUser className="text-white" />
-              </span>
-              <Link to="/profil" className="ml-3">Author Profile</Link>
-            </a>
-          </li>
-        </ul>
-      </div>
-=======
             <nav className="w-[20%] h-[85vh] bg-white rounded-2xl shadow-lg p-4 mt-2 ms-5">
                 <div className="mb-4">
                     <div className="text-gray-500 font-semibold text-xs mb-2">New Feeds</div>
@@ -104,7 +51,6 @@ export const SideBar = (props) => {
                         </li>
                     </ul>
                 </div>
->>>>>>> main
 
                 <div className="mb-4">
                     <div className="text-gray-500 font-semibold text-xs mb-2">More Pages</div>

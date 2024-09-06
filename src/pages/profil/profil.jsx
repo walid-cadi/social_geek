@@ -1,8 +1,7 @@
 import React from "react";
-import Post from "../components/post";
+import {Post} from "../components/post"
 import { BsCardImage } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa6";
 import { FiLinkedin, FiMessageCircle, FiTwitter, FiUsers } from "react-icons/fi";
 
 const Profil = () => {
@@ -22,7 +21,7 @@ return (
           <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
             <img
               className="object-cover object-center h-32"
-              src={user.avatar || "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"}
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
               alt="profil"
             />
           </div>
@@ -50,7 +49,7 @@ return (
             <div class="p-4">
               <h4 class="font-bold mb-3 text-sm text-gray-900">Bio</h4>
               <p class="font-medium text-gray-500 leading-6 text-xs mb-0">
-                {user.bio}
+               ggggggggggggggggggggggg
               </p>
             </div>
             <div class="border-t  p-4 ps-5">
@@ -73,7 +72,7 @@ return (
           </div>
     
           <div >
-          <Post  />
+          <Post/>
           </div>
         </div>
       </div>
