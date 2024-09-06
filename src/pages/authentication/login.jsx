@@ -1,83 +1,116 @@
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import images from "../../constant/images";
-import { CiLock, CiMail } from "react-icons/ci";
+import { MyAppContext } from "../../context";
 
 const Login = () => {
-   
+  const  {dataProfile , setUserData , userData} = MyAppContext() 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState(""); 
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    
+    const user = dataProfile.find(
+      (profile) => profile.email === email && profile.password === password
+    );
+    
+    
+
+    if (user) {
+      
+      setLoginMessage("Login successful!");
+      console.log("Logged in user:", user);
+      setUserData(user)
+      console.log(userData);
+      navigate("/homePage");
+    } else {
+      
+      setLoginMessage("Invalid email or password. Please try again.");
+    }
+  };
+
   return (
-    <div>
-      <div className="flex justify-between ">
-        <div>
-          <img className="w-[40vw]" src={images.login} alt="" />
-        </div>
-        <div className="w-[60vw] flex flex-col gap-5 mt-3">
-          <div className=" flex gap-2 justify-end">
-            <button className="px-10 py-4 rounded-full cursor-pointer border-0 text-white bg-[#353a40] shadow-md tracking-wider uppercase text-sm transition-all duration-500 ease-out hover:tracking-widest hover:bg-[#006aff] hover:text-black hover:shadow-xl active:tracking-widest">
-              Login
-            </button>
-            <button className="px-10 py-4 text-white rounded-full cursor-pointer border-0 bg-[#006aff] shadow-md tracking-wider uppercase text-sm transition-all duration-500 ease-out hover:tracking-widest hover:bg-white hover:text-black hover:shadow-xl active:tracking-widest ">
-              Register
-            </button>
+    <div className="bg-gray-100 text-gray-900 flex justify-center w-[100%] h-[45vw]">
+      <div className="m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+        <div className="w-1/2 flex flex-col justify-center items-center">
+          <div>
+            <img src={images.logo} className="w-16" alt="Logo" />
           </div>
-          <div className="flex justify-center items-center flex-col ">
-            <h1 className="text-3xl  font-semibold tracking-tight flex items-center pl-7 w-25">
-              Login into your account
+          <div className="flex flex-col items-center">
+            <h1 className="text-2xl xl:text-2xl font-extrabold mb-4">
+              Sign in to Social Geek
             </h1>
-
-            <form className="flex  flex-col gap-2.5 max-w-xs bg-white p-5 rounded-2xl relative">
-              <p className="text-gray-600 text-sm">
-                Login now and get full access to our Social Geek.
-              </p>
-
-              <label className="relative">
+            <div className="w-full flex-1">
+              <div className="max-w-xs">
+                {loginMessage && (
+                  <p className={`text-center ${loginMessage.includes('successful') ? 'text-green-500' : 'text-red-500'} mb-4`}>
+                    {loginMessage}
+                  </p>
+                )}
                 <input
-                  required
-                  placeholder=""
+                  className="w-full p-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
-                  className="w-full p-2.5 pt-5 border border-gray-400/40 rounded-lg outline-none"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
-                <span className=" flex items-center gap-1 absolute left-2.5 top-3.5 text-gray-500 text-sm transition-all ease-in-out">
-                  <CiMail />
-                  Email
-                </span>
-              </label>
-
-              <label className="relative">
                 <input
-                  required
-                  placeholder=""
+                  className="w-full p-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="password"
-                  className="w-full p-2.5 pt-5 border border-gray-400/40 rounded-lg outline-none"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-                <span className="  flex items-center gap-1 absolute left-2.5 top-3.5 text-gray-500 text-sm transition-all ease-in-out">
-                  <CiLock />
-                  Password
-                </span>
-              </label>
-
-              <button className="border-none outline-none bg-[#353a40] p-2.5 rounded-lg text-white text-lg transition-transform duration-300 ease-in-out hover:bg-blue-600">
-                Submit
-              </button>
-              <button className=" flex  justify-start gap-4 items-center border-none outline-none bg-[#0d66ff] p-2.5 rounded-lg text-white text-lg transition-transform duration-300 ease-in-out hover:bg-blue-600">
-                <img className="w-9 h-9 rounded-sm    " src={images.google} alt="" />
-                Login with Google
-              </button>
-              <button className=" flex  justify-start gap-4 items-center border-none outline-none bg-[#3b5999] p-2.5 rounded-lg text-white text-lg transition-transform duration-300 ease-in-out hover:bg-blue-600">
-                <img className="w-9 rounded-sm    " src={images.facebbok} alt="" />
-                Login with Facebook
-              </button>
-              
-
-              <p className="text-gray-600 text-sm text-center">
-                You don't have an account?
-                <p
-                  href="#"
-                  className="text-[royalblue] hover:underline font-bold cursor-pointer"
+                <button
+                  className="mt-5 tracking-wide font-semibold bg-[#2563eb] text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                  onClick={handleLogin}
                 >
-                  Sign up
+                  <svg
+                    className="w-6 h-6 -ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                    <circle cx="8.5" cy="7" r="4" />
+                    <path d="M20 8v6M23 11h-6" />
+                  </svg>
+                  <span className="ml-3">Login</span>
+                </button>
+                <p className="mt-6 text-xs text-gray-600 text-center">
+                  I agree to abide by templatana's{" "}
+                  <Link
+                    href="#"
+                    className="border-b border-gray-500 border-dotted"
+                  >
+                    Terms of Service
+                  </Link>{" "}
+                  and its{" "}
+                  <Link
+                    href="#"
+                    className="border-b border-gray-500 border-dotted"
+                  >
+                    Privacy Policy
+                  </Link>
                 </p>
-              </p>
-            </form>
+              </div>
+            </div>
           </div>
+        </div>
+        <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
+          <div
+            className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
+            style={{
+              backgroundImage:
+                "url('https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg')",
+            }}
+          ></div>
         </div>
       </div>
     </div>

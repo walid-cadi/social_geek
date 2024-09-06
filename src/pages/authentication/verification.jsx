@@ -10,27 +10,29 @@ const Verification = () => {
   const navigate = useNavigate();
 
   const { dataProfile, setDataProfile } = MyAppContext();
-  const newProfile = dataProfile[dataProfile?.length - 1 ]
+  const newProfile = dataProfile
 if (newProfile) {
   setDataProfile(newProfile)
   console.log(newProfile);
   console.log(dataProfile?.length -1);
 }
+console.log(dataProfile);
+console.log(newProfile);
+
+
  
 
 
 
   const handleVerify = (e) => {
     e.preventDefault();
-    if (inputCode === newProfile.generateCode) {
+    if (dataProfile.find((element) => element.generateCode === inputCode)) {
       setNotificationMessage("Registration Successful!");
       setNotificationType("success");
-      showNotification("Registration Successful!");
       navigate("/login");
     } else {
       setNotificationMessage("Code does not match");
       setNotificationType("error");
-      showNotification("Code does not match", "error");
     }
   };
 
@@ -40,44 +42,9 @@ if (newProfile) {
     setNotificationType("info");
   };
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setInputCode((prevCode) => prevCode + value);
-  };
+  
 
-  const showNotification = (message, type = "success") => {
-    setNotificationMessage(message);
-    setNotificationType(type);
-
-    if ("Notification" in window) {
-      if (Notification.permission === "granted") {
-        notify(message);
-      } else {
-        Notification.requestPermission().then((res) => {
-          if (res === "granted") {
-            notify(message);
-          } else {
-            console.error("Did not receive permission for notifications");
-          }
-        });
-      }
-    } else {
-      console.error("Browser does not support notifications");
-    }
-  };
-
-  const notify = (message) => {
-    const notification = new Notification("Verification:", {
-      body: message,
-      icon: "https://unsplash.it/400/400",
-      vibration: [300, 200, 300],
-    });
-
-    
-
-    
-  };
-
+  
   return (
     <>
       {notificationMessage && (
@@ -122,41 +89,38 @@ if (newProfile) {
             We have sent a verification code to your mobile number
           </p>
           <div className="max-w-md mx-auto border mt-20">
-  <form className="bg-white shadow-md rounded px-8 py-6">
-    <div className="mb-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="otp">
-        OTP:
-      </label>
-      <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        id="otp"
-        type="text"
-        placeholder="Enter OTP"
-      />
-    </div>
-    <div className="flex items-center justify-between">
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        type="button"
-      >
-        Verify
-      </button>
-      <Link
-        className="inline-block align-baseline font-bold text-sm bg-blue-500 hover:text-blue-800"
-        href="#"
-      >
-        Resend OTP
-      </Link>
-    </div>
-  </form>
-</div>
-
-         
-   
-         
-
-
-         
+            <div className="bg-white shadow-md rounded px-8 py-6">
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="otp">
+                  OTP:
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="otp"
+                  type="number"
+                  placeholder="Enter OTP"
+                  onChange={(e) => setInputCode(e.target.value)}
+                  value={inputCode}
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                  onClick={handleVerify}
+                >
+                  Verify
+                </button>
+                <Link
+                  className="inline-block align-baseline font-bold text-sm bg-blue-500 hover:text-blue-800"
+                  to="#"
+                  onClick={handleResend}
+                >
+                  Resend OTP
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
