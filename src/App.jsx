@@ -9,10 +9,14 @@ import Friend_request from "./pages/Friend Request/friend_request";
 import LandingPage from "./pages/Landing-Page/landingPage";
 
 
+import Profil from "./pages/profil/profil";
+import Setting from './pages/setting/setting'
+import ExploreStories from "./pages/exploreStories/exploreStories";
 
 
 function App() {
-  return (
+  
+return (
     <>
     <LandingPage/>
 {/*     

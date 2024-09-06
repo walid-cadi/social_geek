@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { Images } from "../../constant";
+import React, { useEffect, useState } from "react";
+import { Images, JsonData } from "../../constant";
+import { MyAppContext } from "../../context";
 
 export const Groups = () => {
-
   const [groupName, setGroupName] = useState("");
   const [groupCover, setGroupCover] = useState();
-  const [group, setGroup] = useState([]);
-  const [searchGroup, setSearchGroup] = useState(group);
+  const [groups, setGroups] = useState([]);
+  const [searchGroup, setSearchGroup] = useState(groups);
+
+  const data = JsonData.users[0];
+  //console.log(data);
 
   //* select image
   const handleImageChange = (e) => {
@@ -15,44 +18,45 @@ export const Groups = () => {
 
   const addGroup = () => {
     if (groupName) {
-      const newTab = [...group];
+      const newTab = [...groups];
       let newGroup = {
         grpName: groupName,
         grpCover: groupCover,
-        //profil: Users[0].Image,
-        //Fname: Users[0].firstName,
-        //Lname: Users[0].lastName,
+        profil: data.Image,
+        Fname: data.firstName,
+        Lname: data.lastName,
         follow: false,
       };
       newTab.push(newGroup);
-      setGroup(newTab);
+      setGroups(newTab);
+      data.groups.push(newTab);
       setGroupName("");
       setGroupCover(null);
+      console.log(data.groups);
     }
   };
 
   const follow = (i) => {
-    const newTab = [...group];
+    const newTab = [...groups];
     newTab[i].follow = !newTab[i].follow;
-    setGroup(newTab);
+    setGroups(newTab);
   };
 
   const handleSearch = (searchText) => {
-    const newTab = [...group];
+    const newTab = [...groups];
     let result = newTab.filter((ele) =>
       ele.name.toLowerCase().includes(searchText)
     );
     if (searchText) {
       setSearchGroup(result);
     } else {
-      setSearchGroup(group);
+      setSearchGroup(groups);
     }
   };
 
-
   return (
     <>
-      <div className="w-full bg-[#f4f5f7] min-h-screen pt-10 flex flex-col items-center  gap-5 ">
+      <div className="w-full  bg-[#f4f5f7] min-h-screen pt-10 flex flex-col items-center  gap-5 ">
         <div className="bg-[white] rounded p-9 w-[70vw] flex items-center justify-between">
           <h1 className="text-2xl font-bold">Groups</h1>
           <div className="flex items-center gap-2">
@@ -73,7 +77,9 @@ export const Groups = () => {
                 />
               </svg>
               <input
-                onChange={(e)=>{handleSearch(e.target.value)}}
+                onChange={(e) => {
+                  handleSearch(e.target.value);
+                }}
                 type="text"
                 className="w-[15vw] border-0 border-blue-800 bg-blue-50 text-gray-700 p-3 rounded-lg custom-placeholder"
                 placeholder="Search here"
@@ -208,8 +214,8 @@ export const Groups = () => {
           </div>
         </div>
         <div className="flex flex-wrap gap-y-7 w-[70vw] justify-between">
-          {group &&
-            group.map((e, i) => (
+          {groups &&
+            groups.map((e, i) => (
               <>
                 <div className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
                   <div className="rounded-t-lg h-32 overflow-hidden">

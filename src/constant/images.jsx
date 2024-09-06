@@ -1,6 +1,9 @@
 let dataImages = {
     login: require("../assets/images/login-bg.jpg"),
     google: require("../assets/images/download.jpeg"),
+   google: require("../assets/images/download.jpeg"),
+   facebbok: require("../assets/images/facebook.jpeg"), 
+   logo: require("../assets/images/logo.png"), 
     facebbok: require("../assets/images/facebook.jpeg"),
     profil: require("../assets/images/profile.jpg"),
     user: require("../assets/images/profile-2.png"),
