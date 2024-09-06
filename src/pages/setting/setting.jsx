@@ -4,7 +4,8 @@ const Setting = () => {
   
 
 return (
-    <>
+  <>
+    
       <form className="w-[80vw] flex pl-7 pt-6 bg-white" >
         <div className="flex flex-col gap-1 rounded-xl mx-2">
           <h1 className="text-xl font-bold">User settings</h1>

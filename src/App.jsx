@@ -8,6 +8,7 @@ import { Groups } from "./pages/groups/Groups";
 import Friend_request from "./pages/Friend Request/friend_request";
 import Profil from "./pages/profil/profil";
 import Setting from "./pages/setting/setting";
+import { GroupPage } from "./pages/groups/Group";
 
 
 
@@ -23,6 +24,7 @@ return (
         <Routes>
           <Route path="/home" element={<Home/>}/>
           <Route path="/groups" element={<Groups/>}/>
+          <Route path="/group" element={<GroupPage/>}/>
           <Route path="/friend_request" element={<Friend_request />} />
           <Route path="/profil" element={<Profil />} />
           <Route path="/setting" element={<Setting />} />
