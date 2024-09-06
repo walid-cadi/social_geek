@@ -47,7 +47,7 @@ export const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex items-center space-x-4 gap-3 relative">
+      <div className="flex items-center space-x-4 gap-3 relative ">
         <a href="#" className="relative text-center" onClick={toggleNotifications}>
           <span className="absolute top-0 right-0 bg-yellow-400 h-2 w-2 rounded-full"></span>
           <FiBell className="text-2xl text-blue-600" />
@@ -66,7 +66,7 @@ export const Navbar = () => {
         </Link>
 
         {showNotifications && (
-          <div className="absolute right-48 mt-80 w-80 bg-white rounded-lg shadow-lg">
+          <div className="absolute right-48 mt-80 w-80 bg-white rounded-lg shadow-lg z-10">
             <div className="p-4">
               <h3 className="text-lg font-semibold">Notification</h3>
               <div className="mt-4 space-y-2">
