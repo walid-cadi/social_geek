@@ -22,6 +22,7 @@ return (
         <Routes>
           <Route path="/home" element={<Home/>}/>
           <Route path="/groups" element={<Groups/>}/>
+          <Route path="/group" element={<GroupPage/>}/>
           <Route path="/friend_request" element={<Friend_request />} />
           <Route path="/profile" element={<Profil />} />
           <Route path="/setting" element={<Setting />} />

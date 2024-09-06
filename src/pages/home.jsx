@@ -7,6 +7,7 @@ import { StoriesSection } from './components/Stories';
 
 const Home = () => {
   return (
+    
     <div className='flex gap-x-5'>
       <div className='p-2'>
         <StoriesSection/>
