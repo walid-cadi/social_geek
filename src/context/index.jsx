@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
-export const Mycontext = createContext()
+export const Mycontext = createContext();
 
 export const MyProvider = ({ children }) => {
   const [dataProfile, setDataProfile] = useState([]);
@@ -49,6 +49,10 @@ export const MyProvider = ({ children }) => {
     return code;
   };
 
+  const test = (message) => {
+    setUserData(message);
+  };
+
   const [groups, setGroups] = useState([]);
 
   const all = {
@@ -57,11 +61,12 @@ export const MyProvider = ({ children }) => {
     generateCode,
     userData,
     setUserData,
+    test,
     groups,
     setGroups,
   };
 
   return <Mycontext.Provider value={all}>{children}</Mycontext.Provider>;
-}
+};
 
-export const MyAppContext = () => useContext(Mycontext)
+export const MyAppContext = () => useContext(Mycontext);
