@@ -1,25 +1,20 @@
 import React from 'react';
-import Profil from '../pages/profil/profil';
+import Home from './home';
 import Navbar from "../layouts/navbar"
 import SideBar from "../layouts/dashboard"
-const Profilee = () => {
+const Homepage = () => {
     return (
         <>
-            
-           <div>
+               <div>
            <Navbar />
            <div className="flex">
            <SideBar />
-           <Profil  />
+           <Home  />
            </div>
            
            </div>
-       
-           
-            
-          
         </>
     );
 }
 
-export default Profilee;
+export default Homepage;

@@ -1,25 +1,21 @@
 import React from 'react';
-import Profil from '../pages/profil/profil';
 import Navbar from "../layouts/navbar"
 import SideBar from "../layouts/dashboard"
-const Profilee = () => {
+import ExploreStories from './exploreStories/exploreStories';
+
+const Stories = () => {
     return (
         <>
-            
-           <div>
+              <div>
            <Navbar />
            <div className="flex">
            <SideBar />
-           <Profil  />
+            <ExploreStories />
            </div>
            
-           </div>
-       
-           
-            
-          
+           </div> 
         </>
     );
 }
 
-export default Profilee;
+export default Stories;
