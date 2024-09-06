@@ -2,7 +2,8 @@ import React from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 import { FiUsers, FiMessageSquare, FiSettings, FiBell, FiInfo, FiArrowDown, FiArrowDownRight } from 'react-icons/fi';
 import { Images } from "../../constant";
-import { FaPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
 
 export const RightBar = () => {
   return (
@@ -10,7 +11,7 @@ export const RightBar = () => {
   <div className=" mx-auto  flex  items-center">
     <div className="w-[320px] rounded-lg flex flex-col gap-3 py-2 border bg-white dark:border-gray-500 dark:bg-gray-800">
       <div className="flex items-center justify-between p-4 dark:text-white">
-        <h4>Add to your feed</h4>
+        <h4>Friends Request</h4>
         <FiInfo className='text-gray-500'/>
       </div>
       <div className="w-full flex ps-5 gap-2 px-2">
@@ -49,7 +50,9 @@ export const RightBar = () => {
         </div>
       </div>
       <div className="w-full flex gap-1 px-4 pb-2 justify-between items-center">
+        <Link to="/friend_request">
         <h6 className="text-md text-gray-700  dark:text-gray-400">View all</h6>
+        </Link>
         <FaArrowRight className='text-gray-600'/>
       </div>
     </div>

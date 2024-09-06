@@ -1,10 +1,14 @@
 import React from "react";
+import { BsCardImage } from "react-icons/bs";
+import { FaInstagram } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa6";
+import { FiLinkedin, FiMessageCircle, FiTwitter, FiUsers } from "react-icons/fi";
 
 const Profil = () => {
   return (
     <>
       <div className="p-10">
-        <div className="w-[95%]  bg-white shadow-xl rounded-lg text-gray-900">
+        <div className="w-[95%]  bg-white shadow-xl rounded-lg text-gray-900 pb-5">
           <div className="rounded-t-lg h-32 overflow-hidden">
             <img
               className="object-cover object-top w-full"
@@ -20,33 +24,21 @@ const Profil = () => {
             />
           </div>
           <div className="text-center mt-2">
-            <h2 className="font-semibold">ccccccccc</h2>
+            <h2 className="font-semibold">user</h2>
             <p className="text-gray-500">mr.zakaria@salami.com</p>
           </div>
           <ul className="flex justify-center pt-3 gap-7">
             <li className="flex flex-col items-center justify-around">
-              <h3 className="text-base font-bold">Posts</h3>
-              <h6 className="text-base font-bold">4</h6>
+              <BsCardImage className=" font-bold text-blue-600 text-xl" />
+              <h6 className="text-base  text-gray-600">4</h6>
             </li>
             <li className="flex flex-col items-center justify-between">
-              <svg
-                className="w-4 fill-current text-blue-900"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M7 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1c2.15 0 4.2.4 6.1 1.09L12 16h-1.25L10 20H4l-.75-4H2L.9 10.09A17.93 17.93 0 0 1 7 9zm8.31.17c1.32.18 2.59.48 3.8.92L18 16h-1.25L16 20h-3.96l.37-2h1.25l1.65-8.83zM13 0a4 4 0 1 1-1.33 7.76 5.96 5.96 0 0 0 0-7.52C12.1.1 12.53 0 13 0z" />
-              </svg>
-              <div>10k</div>
+              <FiUsers className="text-blue-600 text-xl"/>
+              <div className="text-gray-600">10k</div>
             </li>
             <li className="flex flex-col items-center justify-around">
-              <svg
-                className="w-4 fill-current text-blue-900"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z" />
-              </svg>
-              <div>15</div>
+            <FiMessageCircle className="text-blue-600 text-xl "/>
+              <div className="text-gray-600">15</div>
             </li>
           </ul>
         </div>
@@ -60,36 +52,23 @@ const Profil = () => {
                 faucibus mollis pharetra. Proin blandit ac massa sed rhoncus.
               </p>
             </div>
-            <div class="border-t flex items-center p-4">
-              <i class="feather-lock text-gray-500 mr-3 text-lg"></i>
-              <h4 class="font-bold text-gray-900 text-xs mt-0">
-                Private
-                <span class="block text-xs font-medium mt-1 leading-3 text-gray-500">
-                  What's up, how are you?
-                </span>
-              </h4>
+            <div class="border-t  p-4 ps-5">
+               <h6 className="font-semibold font-serif pb-4">contact info</h6>
+               <div className="flex gap-2 items-center">
+                <FaInstagram className="text-fuchsia-950 text-lg" />
+                 <h6>@user_ii</h6>
+                </div>
+                <div className="flex gap-2 items-center pt-3">
+                <FiTwitter className="text-blue-600 text-lg" />
+                 <h6>@user_twit</h6>
+                </div>
+                <div className="flex gap-2 items-center pt-3">
+                <FiLinkedin className="text-blue-600 text-lg" />
+                 <h6>@user_link</h6>
+                </div>
             </div>
-            <div class="flex items-center pt-0 p-4">
-              <i class="feather-eye text-gray-500 mr-3 text-lg"></i>
-              <h4 class="font-bold text-gray-900 text-xs mt-0">
-                Visible
-                <span class="block text-xs font-medium mt-1 leading-3 text-gray-500">
-                  Anyone can find you
-                </span>
-              </h4>
-            </div>
-            <div class="flex items-center pt-0 p-4">
-              <i class="feather-map-pin text-gray-500 mr-3 text-lg"></i>
-              <h4 class="font-bold text-gray-900 text-xs mt-1">
-                Flodia, Austria
-              </h4>
-            </div>
-            <div class="flex items-center pt-0 p-4">
-              <i class="feather-users text-gray-500 mr-3 text-lg"></i>
-              <h4 class="font-bold text-gray-900 text-xs mt-1">
-                General Group
-              </h4>
-            </div>
+
+            
           </div>
           <div class="w-[60%]  h-screen  dark:bg-gray-900">
             <div class=" pt-3 flex ">

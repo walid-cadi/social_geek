@@ -29,7 +29,7 @@ const Friend_request = () => {
     };
 
     return (
-        <div className='bg-[#edf0f4] w-[80%]'>
+        <div className='bg-[#f3f4f6] ms-5 mt-3  w-[75vw] pb-10'>
             <div className='pt-10 flex justify-center items-center ps-8'>
                 <div className='bg-white flex justify-between shadow-xl w-[63vw] h-24 items-center p-10 rounded-lg'>
                     <div>

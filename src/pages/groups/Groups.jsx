@@ -52,7 +52,7 @@ export const Groups = () => {
 
   return (
     <>
-      <div className="w-full bg-[#f4f5f7] min-h-screen pt-10 flex flex-col items-center  gap-5 ">
+      <div className="w-full  bg-[#f4f5f7] min-h-screen pt-10 flex flex-col items-center  gap-5 ">
         <div className="bg-[white] rounded p-9 w-[70vw] flex items-center justify-between">
           <h1 className="text-2xl font-bold">Groups</h1>
           <div className="flex items-center gap-2">
