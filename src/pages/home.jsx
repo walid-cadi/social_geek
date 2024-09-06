@@ -4,7 +4,6 @@ import RightBar from './components/rightbar';
 import { StoriesSection } from './components/Stories';
 
 
-
 const Home = () => {
   return (
     

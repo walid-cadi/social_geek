@@ -1,10 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .custom-placeholder::placeholder {
     color: rgb(7, 7, 227); 
     opacity: 0.5;
 }
-
-
-  
+.dark-mode {
+    background-color: #091122;
+    color: #f7fafc; 
+}
+.dark-mode .pg{
+    color: rgb(181, 180, 180);
+}
+.dark-mode .title-h1{
+    color: white;
+}
+.dark-mode .link-dark{
+    color: #fac651;
+    border-bottom: #fac651;
+}
+.dark-mode .spaning{
+    color: #1c64f2;
+}
