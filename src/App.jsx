@@ -15,26 +15,26 @@ import { GroupPage } from "./pages/groups/Group";
 function App() {
   
 return (
-    <>
-    <div className="min-h-screen bg-gray-100">
-      <Navbar />
-      <div className="flex">
-        <SideBar />
-        <Routes>
-          <Route path="/home" element={<Home/>}/>
-          <Route path="/groups" element={<Groups/>}/>
-          <Route path="/group" element={<GroupPage/>}/>
-          <Route path="/friend_request" element={<Friend_request />} />
-          <Route path="/profile" element={<Profil />} />
-          <Route path="/setting" element={<Setting />} />
-          <Route path="/stories" element={<ExploreStories/>} />
-
-        </Routes>
+  <>
+    <MyProvider>
+      <div className="min-h-screen bg-gray-100">
+        <Navbar />
+        <div className="flex">
+          <SideBar />
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/groups" element={<Groups />} />
+            <Route path="/group/:grpName" element={<GroupPage />} />
+            <Route path="/friend_request" element={<Friend_request />} />
+            <Route path="/profile" element={<Profil />} />
+            <Route path="/setting" element={<Setting />} />
+            <Route path="/stories" element={<ExploreStories />} />
+          </Routes>
+        </div>
       </div>
-    </div>
-
-    </>
-  );
+    </MyProvider>
+  </>
+);
 }
 
 export default App;

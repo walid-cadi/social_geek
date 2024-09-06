@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Images, JsonData } from "../../constant";
 import { MyAppContext } from "../../context";
+import { useNavigate } from "react-router-dom";
 
 export const Groups = () => {
   const [groupName, setGroupName] = useState("");
   const [groupCover, setGroupCover] = useState();
-  const [groups, setGroups] = useState([]);
+  //const [groups, setGroups] = useState([]);
+  const { groups, setGroups } = MyAppContext();
   const [searchGroup, setSearchGroup] = useState(groups);
+
+  const navigate = useNavigate();
 
   const data = JsonData.users[0];
   //console.log(data);
@@ -26,13 +30,16 @@ export const Groups = () => {
         Fname: data.firstName,
         Lname: data.lastName,
         follow: false,
+        posts: [],
+        members: [],
+        admin: [JsonData.users[0]],
       };
       newTab.push(newGroup);
       setGroups(newTab);
       data.groups.push(newTab);
       setGroupName("");
       setGroupCover(null);
-      console.log(data.groups);
+      //console.log(data.groups);
     }
   };
 
@@ -45,7 +52,7 @@ export const Groups = () => {
   const handleSearch = (searchText) => {
     const newTab = [...groups];
     let result = newTab.filter((ele) =>
-      ele.name.toLowerCase().includes(searchText)
+      ele.name.toLowerCase().includes(searchText.toLowerCase())
     );
     if (searchText) {
       setSearchGroup(result);
@@ -217,7 +224,7 @@ export const Groups = () => {
           {groups &&
             groups.map((e, i) => (
               <>
-                <div className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
+                <div onClick={()=> {navigate(`/group/${e.grpName}`);}} className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
                   <div className="rounded-t-lg h-32 overflow-hidden">
                     <img
                       className="object-cover object-top w-full"
