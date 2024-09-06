@@ -8,6 +8,7 @@ export const Groups = () => {
   const [groupCover, setGroupCover] = useState();
   //const [groups, setGroups] = useState([]);
   const { groups, setGroups } = MyAppContext();
+  const { userData, setUserData } = MyAppContext;
   const [searchGroup, setSearchGroup] = useState(groups);
 
   const navigate = useNavigate();
