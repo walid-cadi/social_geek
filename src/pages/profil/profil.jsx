@@ -1,5 +1,9 @@
 import React from "react";
 import Post from "../components/post";
+import { BsCardImage } from "react-icons/bs";
+import { FaInstagram } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa6";
+import { FiLinkedin, FiMessageCircle, FiTwitter, FiUsers } from "react-icons/fi";
 
 const Profil = () => {
  
@@ -7,7 +11,7 @@ const Profil = () => {
 return (
     <>
       <div className="p-10">
-        <div className="w-[95%]  bg-white shadow-xl rounded-lg text-gray-900">
+        <div className="w-[95%]  bg-white shadow-xl rounded-lg text-gray-900 pb-5">
           <div className="rounded-t-lg h-32 overflow-hidden">
             <img
               className="object-cover object-top w-full"
@@ -23,21 +27,21 @@ return (
             />
           </div>
           <div className="text-center mt-2">
-            <h2 className="font-semibold">zakaria</h2>
-            <p className="text-gray-500">mr.zakariasalami@gmail.com</p>
+            <h2 className="font-semibold">user</h2>
+            <p className="text-gray-500">mr.zakaria@salami.com</p>
           </div>
           <ul className="flex justify-center pt-3 gap-7">
             <li className="flex flex-col items-center justify-around">
-              <h3 className="text-base font-bold">Posts</h3>
-              <h6 className="text-base font-bold">4</h6>
+              <BsCardImage className=" font-bold text-blue-600 text-xl" />
+              <h6 className="text-base  text-gray-600">4</h6>
             </li>
             <li className="flex flex-col items-center justify-between">
-            <h3 className="text-base font-bold">Followers</h3>
-              <div>10k</div>
+              <FiUsers className="text-blue-600 text-xl"/>
+              <div className="text-gray-600">10k</div>
             </li>
             <li className="flex flex-col items-center justify-around">
-            <h3 className="text-base font-bold">Following</h3>
-              <div>15</div>
+            <FiMessageCircle className="text-blue-600 text-xl "/>
+              <div className="text-gray-600">15</div>
             </li>
           </ul>
         </div>
@@ -49,36 +53,23 @@ return (
                 {user.bio}
               </p>
             </div>
-            <div class="border-t flex items-center p-4">
-              <i class="feather-lock text-gray-500 mr-3 text-lg"></i>
-              <h4 class="font-bold text-gray-900 text-xs mt-0">
-                Private
-                <span class="block text-xs font-medium mt-1 leading-3 text-gray-500">
-                  What's up, how are you?
-                </span>
-              </h4>
+            <div class="border-t  p-4 ps-5">
+               <h6 className="font-semibold font-serif pb-4">contact info</h6>
+               <div className="flex gap-2 items-center">
+                <FaInstagram className="text-fuchsia-950 text-lg" />
+                 <h6>@user_ii</h6>
+                </div>
+                <div className="flex gap-2 items-center pt-3">
+                <FiTwitter className="text-blue-600 text-lg" />
+                 <h6>@user_twit</h6>
+                </div>
+                <div className="flex gap-2 items-center pt-3">
+                <FiLinkedin className="text-blue-600 text-lg" />
+                 <h6>@user_link</h6>
+                </div>
             </div>
-            <div class="flex items-center pt-0 p-4">
-              <i class="feather-eye text-gray-500 mr-3 text-lg"></i>
-              <h4 class="font-bold text-gray-900 text-xs mt-0">
-                Visible
-                <span class="block text-xs font-medium mt-1 leading-3 text-gray-500">
-                  Anyone can find you
-                </span>
-              </h4>
-            </div>
-            <div class="flex items-center pt-0 p-4">
-              <i class="feather-map-pin text-gray-500 mr-3 text-lg"></i>
-              <h4 class="font-bold text-gray-900 text-xs mt-1">
-                Flodia, Austria
-              </h4>
-            </div>
-            <div class="flex items-center pt-0 p-4">
-              <i class="feather-users text-gray-500 mr-3 text-lg"></i>
-              <h4 class="font-bold text-gray-900 text-xs mt-1">
-                General Group
-              </h4>
-            </div>
+
+            
           </div>
     
           <div >

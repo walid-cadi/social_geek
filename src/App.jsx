@@ -13,6 +13,9 @@ import Register from "./pages/authentication/register";
 import Verification from "./pages/authentication/verification";
 
 import { MyProvider } from "./context";
+import Profil from "./pages/profil/profil";
+import Setting from './pages/setting/setting'
+import ExploreStories from "./pages/exploreStories/exploreStories";
 
 
 function App() {
@@ -34,7 +37,12 @@ return (
           <Route path="/setting" element={<Settings />} />
           <Route path="/home" element={<Home/>}/>
           <Route path="/groups" element={<Groups/>}/>
+          <Route path="/group" element={<GroupPage/>}/>
           <Route path="/friend_request" element={<Friend_request />} />
+          <Route path="/profile" element={<Profil />} />
+          <Route path="/setting" element={<Setting />} />
+          <Route path="/stories" element={<ExploreStories/>} />
+
         </Routes>
       </div>
     </div>
