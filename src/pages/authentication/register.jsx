@@ -44,7 +44,7 @@ const Register = () => {
       followers: [],
       follows: [],
       groups: [],
-      FirstTime : true,
+      FirstTime : false,
       profile: `` 
     };
 

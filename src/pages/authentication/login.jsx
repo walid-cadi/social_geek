@@ -4,13 +4,13 @@ import images from "../../constant/images";
 import { MyAppContext } from "../../context";
 
 const Login = () => {
-  const  {dataProfile , setUserData , userData} = MyAppContext() 
+  const  {dataProfile , setUserData , userData, test} = MyAppContext() 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState(""); 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin =  (e) => {
     e.preventDefault();
 
     
@@ -24,9 +24,10 @@ const Login = () => {
       
       setLoginMessage("Login successful!");
       console.log("Logged in user:", user);
-      setUserData(user)
+      test(user)
       console.log(userData);
-      navigate("/homePage");
+      navigate("/profile");
+     
     } else {
       
       setLoginMessage("Invalid email or password. Please try again.");

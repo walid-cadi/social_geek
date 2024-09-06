@@ -1,10 +1,13 @@
 import React from "react";
 import { BsCardImage } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa6";
 import { FiLinkedin, FiMessageCircle, FiTwitter, FiUsers } from "react-icons/fi";
+import { MyAppContext } from "../../context";
 
 const Profil = () => {
+
+  const  {userData} = MyAppContext() 
+
   return (
     <>
       <div className="p-10">
@@ -24,8 +27,8 @@ const Profil = () => {
             />
           </div>
           <div className="text-center mt-2">
-            <h2 className="font-semibold">user</h2>
-            <p className="text-gray-500">mr.zakaria@salami.com</p>
+            <h2 className="font-semibold">{userData.firstName}</h2>
+            <p className="text-gray-500">{userData.email}</p>
           </div>
           <ul className="flex justify-center pt-3 gap-7">
             <li className="flex flex-col items-center justify-around">
