@@ -11,14 +11,14 @@ import Homepage from "./pages/homepage";
 import Grouppage from "./pages/grouppage";
 import Friends from "./pages/friends";
 import Stories from "./pages/stories";
+import LandingPage from "./pages/Landing-Page/landingPage";
 function App() {
   return (
     <>
     
       <MyProvider>
-  
         <Routes>
-         
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>} />
           <Route path="/verification" element={<Verification />}/>
@@ -29,10 +29,7 @@ function App() {
           <Route path="/friend_request" element={<Friends />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/stories" element={<Stories />} />
-
         </Routes>
-      
-    
     </MyProvider>
     
     </>
