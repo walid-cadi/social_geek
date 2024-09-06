@@ -1,51 +1,56 @@
-import React, { useState } from "react";
-import { Images } from "../../constant";
+import React, { useEffect, useState } from "react";
+import { Images, JsonData } from "../../constant";
+import { MyAppContext } from "../../context";
 
 export const Groups = () => {
   const [groupName, setGroupName] = useState("");
   const [groupCover, setGroupCover] = useState();
-  const [group, setGroup] = useState([]);
-  const [searchGroup, setSearchGroup] = useState(group);
-  
+  const [groups, setGroups] = useState([]);
+  const [searchGroup, setSearchGroup] = useState(groups);
+
+  const data = JsonData.users[0];
+  //console.log(data);
+
   //* select image
   const handleImageChange = (e) => {
     setGroupCover(URL.createObjectURL(e.target.files[0]));
   };
 
-
   const addGroup = () => {
     if (groupName) {
-      const newTab = [...group];
+      const newTab = [...groups];
       let newGroup = {
         grpName: groupName,
         grpCover: groupCover,
-        //profil: Users[0].Image,
-        //Fname: Users[0].firstName,
-        //Lname: Users[0].lastName,
+        profil: data.Image,
+        Fname: data.firstName,
+        Lname: data.lastName,
         follow: false,
       };
       newTab.push(newGroup);
-      setGroup(newTab);
+      setGroups(newTab);
+      data.groups.push(newTab);
       setGroupName("");
       setGroupCover(null);
+      console.log(data.groups);
     }
   };
 
   const follow = (i) => {
-    const newTab = [...group];
+    const newTab = [...groups];
     newTab[i].follow = !newTab[i].follow;
-    setGroup(newTab);
+    setGroups(newTab);
   };
 
   const handleSearch = (searchText) => {
-    const newTab = [...group];
+    const newTab = [...groups];
     let result = newTab.filter((ele) =>
       ele.name.toLowerCase().includes(searchText)
     );
     if (searchText) {
       setSearchGroup(result);
     } else {
-      setSearchGroup(group);
+      setSearchGroup(groups);
     }
   };
 
@@ -209,8 +214,8 @@ export const Groups = () => {
           </div>
         </div>
         <div className="flex flex-wrap gap-y-7 w-[70vw] justify-between">
-          {group &&
-            group.map((e, i) => (
+          {groups &&
+            groups.map((e, i) => (
               <>
                 <div className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
                   <div className="rounded-t-lg h-32 overflow-hidden">
