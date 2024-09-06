@@ -24,6 +24,7 @@ return (
       <div className="flex">
         <SideBar />
         <Routes>
+          
           <Route path="/home" element={<Home/>}/>
           <Route path="/groups" element={<Groups/>}/>
           <Route path="/friend_request" element={<Friend_request/>} />
