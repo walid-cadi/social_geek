@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiTv, FiAward, FiGlobe, FiZap, FiUser, FiInbox, FiHome, FiMapPin, FiYoutube, FiSettings, FiPieChart, FiMessageSquare } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 export const SideBar = (props) => {
     return (
@@ -46,7 +47,7 @@ export const SideBar = (props) => {
               <span className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full p-1">
                 <FiUser className="text-white" />
               </span>
-              <span className="ml-3">Author Profile</span>
+              <Link to="/profil" className="ml-3">Author Profile</Link>
             </a>
           </li>
         </ul>
