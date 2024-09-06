@@ -11,6 +11,7 @@ import Homepage from "./pages/homepage";
 import Grouppage from "./pages/grouppage";
 import Friends from "./pages/friends";
 import Stories from "./pages/stories";
+import LandingPage from "./pages/Landing-Page/landingPage";
 function App() {
   return (
     <>
@@ -18,7 +19,7 @@ function App() {
       <MyProvider>
   
         <Routes>
-         
+        <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>} />
           <Route path="/verification" element={<Verification />}/>
