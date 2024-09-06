@@ -1,25 +1,20 @@
 import React from 'react';
-import Profil from '../pages/profil/profil';
+import Friend_request from './Friend Request/friend_request';
 import Navbar from "../layouts/navbar"
 import SideBar from "../layouts/dashboard"
-const Profilee = () => {
+const Friends = () => {
     return (
         <>
-            
-           <div>
+            <div>
            <Navbar />
            <div className="flex">
            <SideBar />
-           <Profil  />
+           <Friend_request />
            </div>
            
            </div>
-       
-           
-            
-          
         </>
     );
 }
 
-export default Profilee;
+export default Friends;

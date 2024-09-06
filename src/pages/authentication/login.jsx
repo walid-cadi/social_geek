@@ -26,8 +26,12 @@ const Login = () => {
       console.log("Logged in user:", user);
       test(user)
       console.log(userData);
+<<<<<<< HEAD
       navigate("/profile");
      
+=======
+      navigate("/home");
+>>>>>>> ba2b44d514fc0d2aea7fc8e4c115b5851c1afe84
     } else {
       
       setLoginMessage("Invalid email or password. Please try again.");

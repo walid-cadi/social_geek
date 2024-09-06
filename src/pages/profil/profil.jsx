@@ -1,4 +1,5 @@
 import React from "react";
+import {Post} from "../components/post"
 import { BsCardImage } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { FiLinkedin, FiMessageCircle, FiTwitter, FiUsers } from "react-icons/fi";
@@ -23,7 +24,7 @@ const Profil = () => {
             <img
               className="object-cover object-center h-32"
               src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-              alt="Woman looking front"
+              alt="profil"
             />
           </div>
           <div className="text-center mt-2">
@@ -50,9 +51,7 @@ const Profil = () => {
             <div class="p-4">
               <h4 class="font-bold mb-3 text-sm text-gray-900">Bio</h4>
               <p class="font-medium text-gray-500 leading-6 text-xs mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                nulla dolor, ornare at commodo non, feugiat non nisi. Phasellus
-                faucibus mollis pharetra. Proin blandit ac massa sed rhoncus.
+               ggggggggggggggggggggggg
               </p>
             </div>
             <div class="border-t  p-4 ps-5">
@@ -73,52 +72,9 @@ const Profil = () => {
 
             
           </div>
-          <div class="w-[60%]  h-screen  dark:bg-gray-900">
-            <div class=" pt-3 flex ">
-              <div class="w-full flex flex-col gap-1 p-2 border shadow-lg rounded-xl mx-2 bg-white dark:border-gray-400 dark:bg-gray-800">
-                <div class="flex items-center gap-2 pt-2">
-                  <img
-                    src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw3fHxwZW9wbGV8ZW58MHwwfHx8MTcxMTExMTM4N3ww&ixlib=rb-4.0.3&q=80&w=1080"
-                    alt="User profile"
-                    class="w-[3.5rem] h-[3.5rem] rounded-full"
-                  />
-                  <textarea
-                    rows="1"
-                    class="w-full resize-none truncate border border-gray-400 rounded-full p-[12px] text-left xs:text-sm sm:text-lg  dark:bg-gray-700 dark:text-white dark:border-gray-500"
-                    placeholder="Start a post, try writing with AI"
-                  ></textarea>
-                </div>
-
-                <div class="flex justify-between">
-                  <div class="flex items-center gap-2 p-2 rounded-sm cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <span class="material-symbols-outlined text-blue-400">
-                      panorama
-                    </span>
-                    <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-300">
-                      Media
-                    </h3>
-                  </div>
-
-                  <div class="flex items-center gap-2 p-2 rounded-sm cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <span class="material-symbols-outlined text-yellow-700">
-                      calendar_month
-                    </span>
-                    <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-300">
-                      Event
-                    </h3>
-                  </div>
-
-                  <div class="flex items-center gap-2 sm:p-2 xs:p-1 rounded-sm cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <span class="material-symbols-outlined text-orange-400">
-                      newsmode
-                    </span>
-                    <h3 class="text-sm sm:font-semibold xs:truncate text-gray-600 dark:text-gray-300">
-                      Write article
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
+    
+          <div >
+          <Post/>
           </div>
         </div>
       </div>
