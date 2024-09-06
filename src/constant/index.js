@@ -1,3 +1,4 @@
+import JsonData from './data'
 import Images from "./images"
 
-export { Images }
+export { Images , JsonData}

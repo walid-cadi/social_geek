@@ -1,0 +1,14 @@
+[
+    {
+        "firstName": "zahira",
+        "lastName": "janahi",
+        "email": "zahirajanahi@gmail.com",
+        "birthday": "02/01/2004",
+        "gender": "female",
+        "Image": "user",
+        "followers": [],
+        "follows": [],
+       "groups":[],
+        "posts":[]
+    }
+]

@@ -24,6 +24,7 @@ console.log(newProfile);
 
 
 
+
   const handleVerify = (e) => {
     e.preventDefault();
     if (dataProfile.find((element) => element.generateCode === inputCode)) {
