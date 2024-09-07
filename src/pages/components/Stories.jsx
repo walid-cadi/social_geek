@@ -85,8 +85,8 @@ export const StoriesSection = () => {
 
             {/* Modal*/}
             {selectedStory && (
-                <div className="fixed inset-0  flex items-center justify-center">
-                    <div className="bg-gray-100 p-1 rounded-lg relative">
+                <div className="fixed inset-0  flex items-center justify-center z-10">
+                    <div className="bg-gray-100 p-1 rounded-lg relative ">
                         <button
                             onClick={closeStoryModal}
                             className="absolute top-3 right-5 text-gray-700 text-lg font-bold"

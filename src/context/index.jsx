@@ -7,7 +7,9 @@ export const MyProvider = ({ children }) => {
   const [generatedCode, setGeneratedCode] = useState("");
   const [notificationMessage, setNotificationMessage] = useState("");
   const [notificationType, setNotificationType] = useState("");
+  
   const [userData, setUserData] = useState(null);
+  
   const showNotification = (message, type = "success") => {
     setNotificationMessage(message);
     setNotificationType(type);
