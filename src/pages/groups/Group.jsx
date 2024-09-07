@@ -2,8 +2,7 @@ import React from "react";
 import { MyAppContext } from "../../context";
 import { useParams } from "react-router-dom";
 import { Images } from "../../constant";
-import { Post } from "../components/post";
-import RightBar from "../components/rightbar";
+import { PostGroup } from "../components/PostGroup";
 
 export const GroupPage = () => {
   const { groups, setGroups } = MyAppContext();
@@ -46,12 +45,9 @@ export const GroupPage = () => {
               </div>
             </>
           ))}
-        <div className="flex w-[100%] gap-x-5 px-5">
+        <div className="flex w-[100%] justify-center gap-x-5 px-5">
           <div className="w-[70%]">
-            <Post />
-          </div>
-          <div className="w-[25%]">
-            <RightBar />
+            <PostGroup />
           </div>
         </div>
       </div>

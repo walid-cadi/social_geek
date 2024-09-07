@@ -7,7 +7,7 @@ import { MyAppContext } from "../../context";
 
 const Profil = () => {
 
-  const  {userData} = MyAppContext() 
+  const { userData } = MyAppContext(); 
 
   return (
     <>
