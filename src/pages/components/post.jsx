@@ -7,7 +7,7 @@ import { Images, JsonData } from "../../constant";
 
 export const Post = () => {
     const user = JsonData.users[0];
-
+    
     const [postContent, setPostContent] = useState("");
     const [selectedImages, setSelectedImages] = useState([]);
     const [publicationDate, setPublicationDate] = useState("");
