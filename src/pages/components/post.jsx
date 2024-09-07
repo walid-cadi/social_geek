@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { FiCamera, FiImage, FiCalendar, FiSave, FiTrash, FiEdit, FiHeart } from 'react-icons/fi';
-import { FaHeart, FaPen } from 'react-icons/fa';
-import GLightbox from 'glightbox';
-import 'glightbox/dist/css/glightbox.min.css'; 
+import React, { useState } from 'react';
+import { FiCamera, FiImage, FiSave, FiTrash, FiEdit } from 'react-icons/fi';
+import { FaHeart, FaPen, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Images, JsonData } from "../../constant";
 
 export const Post = () => {
@@ -12,35 +10,18 @@ export const Post = () => {
     const [selectedImages, setSelectedImages] = useState([]);
     const [publicationDate, setPublicationDate] = useState("");
     const [posts, setPosts] = useState([]);
-
-
-    const lightboxRefs = useRef([]);
-
-    useEffect(() => {
-    
-        posts.forEach((_, index) => {
-            lightboxRefs.current[index] = GLightbox({
-                selector: `.glightbox-${index}`
-            });
-        });
-
-        
-        return () => {
-            lightboxRefs.current.forEach(lightbox => lightbox && lightbox.destroy());
-        };
-    }, [posts]); 
-
+ 
+    //*when the user types in the textarea
     const handleContentChange = (e) => {
         setPostContent(e.target.value);
     };
-
+     
+    //* when the user select images
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
         const imageUrls = files.map(file => URL.createObjectURL(file));
         setSelectedImages([...selectedImages, ...imageUrls]);
     };
-
- 
 
     const handleSubmit = () => {
         if (!postContent && selectedImages.length === 0) {
@@ -102,6 +83,46 @@ export const Post = () => {
         setPosts(updatedPosts);
     };
 
+    const Carousel = ({ images }) => {
+        const [currentIndex, setCurrentIndex] = useState(0); //? to display img 1 by default
+
+        const handleNext = () => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        };
+
+        const handlePrev = () => {
+            setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        };
+
+        return (
+            <div className="relative w-64 h-64">
+                {images.length > 1 && (
+                    <button
+                        className="absolute right-80 top-28 p-2 bg-gray-300 rounded-full"
+                        onClick={handlePrev}
+                    >
+                        <FaArrowLeft />
+                    </button>
+                )}
+                <img
+                    src={images[currentIndex]}
+                    alt={`Post Image ${currentIndex}`}
+                    className=" w-full h-full rounded-lg"
+                />
+                {images.length > 1 && (
+                    <button
+                        className="absolute left-80 top-28 p-2 bg-gray-300 rounded-full"
+                        onClick={handleNext}
+                    >
+                        <FaArrowRight />
+                    </button>
+                )}
+            </div>
+        );
+    };
+
+
+
     return (
         <>
             <div className="bg-white rounded-lg h-auto w-[50vw] mt-2 shadow-md p-6">
@@ -140,7 +161,6 @@ export const Post = () => {
                                 <FiCamera color="#fe9431" className="text-xl" />
                                 <span className="ps-1">Video</span>
                             </label>
-                         
                         </div>
                         <button
                             className="bg-blue-600 text-white px-4 py-2 rounded-lg"
@@ -151,21 +171,8 @@ export const Post = () => {
                     </div>
 
                     {selectedImages.length > 0 && (
-                        <div className="mt-4 flex space-x-2">
-                            {selectedImages.map((image, index) => (
-                                <a
-                                    key={index}
-                                    href={image}
-                                    className={`glightbox-${posts.length}`}
-                                    data-glightbox="type: image"
-                                >
-                                    <img
-                                        src={image}
-                                        alt={`Selected ${index}`}
-                                        className="w-40 h-40 object-contain  rounded-lg cursor-pointer"
-                                    />
-                                </a>
-                            ))}
+                        <div className="mt-4 relative flex items-center justify-center">
+                            <Carousel images={selectedImages} />
                         </div>
                     )}
                 </div>
@@ -194,27 +201,13 @@ export const Post = () => {
                         )}
 
                         {post.images.length > 0 && (
-                            <div className="flex gap-1 justify-center">
-                                {post.images.map((image, imgIndex) => (
-                                    <a
-                                        key={imgIndex}
-                                        href={image}
-                                        className={`glightbox-${index}`}
-                                        data-glightbox="type: image"
-                                    >
-                                        <img
-                                            src={image}
-                                            alt={`Post ${imgIndex}`}
-                                            className="w-40 h-40 object-contain  rounded-lg cursor-pointer"
-                                        />
-                                    </a>
-                                ))}
+                            <div className="mt-4 relative  flex items-center justify-center">
+                                <Carousel images={post.images} />
                             </div>
                         )}
 
                         <section className="CommentReact">
                             <div className="flex gap-4 items-center justify-center mb-4 pt-10">
-
                                 <button
                                     className="text-gray-500 hover:text-red-500 rounded-full pt-3"
                                     onClick={() => handleLikeClick(index)}
@@ -242,7 +235,7 @@ export const Post = () => {
                                         className="text-blue-500 rounded-full"
                                         onClick={() => handleEditClick(index)}
                                     >
-                                        {post.isEditing ? <FiSave  className='text-xl' /> : <FiEdit className='text-xl' />} {/* Replace text with icons */}
+                                        {post.isEditing ? <FiSave className='text-xl' /> : <FiEdit className='text-xl' />}
                                     </button>
                                     <button
                                         className="text-gray-600 hover:text-red-500 rounded-lg"
@@ -251,8 +244,6 @@ export const Post = () => {
                                         <FiTrash className='text-xl' />
                                     </button>
                                 </div>
-  
-
                             </div>
 
                             <div>
@@ -261,20 +252,15 @@ export const Post = () => {
                                         {post.comments.map((comment, i) => (
                                             <li key={i} className="text-gray-700 text-sm mb-2 bg-gray-100 py-2 rounded-lg ps-4 w-[30vw] flex items-center gap-3">
                                                 <img src={Images.notuser3} className='w-10' alt="" />
-                                                   <div>
+                                                <div>
                                                     <p className='font-semibold'>{post.user.name}</p>
                                                     {comment}
-                                                   </div>
-                                                     
-                                                
-                                                 
+                                                </div>
                                             </li>
                                         ))}
                                     </ul>
                                 )}
                             </div>
-
-                         
                         </section>
                     </div>
                 ))}
