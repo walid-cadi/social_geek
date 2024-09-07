@@ -13,8 +13,9 @@ import {
 } from "react-icons/fi";
 import { Images } from "../constant";
 import { Link } from "react-router-dom";
-
+import { MyAppContext } from "../context";
 export const Navbar = () => {
+  const  {userData} = MyAppContext() 
   const [showNotifications, setShowNotifications] = useState(false);
   const toggleNotifications = () => {
     setShowNotifications(!showNotifications);
@@ -82,7 +83,7 @@ export const Navbar = () => {
 
         <Link href="/profile" className="text-center">
           <img
-            src={Images.notuser3}
+            src={userData.profile}
             alt="user"
             className="h-10 w-10 rounded-full"
           />

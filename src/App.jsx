@@ -6,7 +6,7 @@ import Login from "./pages/authentication/login";
 import Register from "./pages/authentication/register";
 import Verification from "./pages/authentication/verification";
 import { MyProvider } from "./context";
-import Setting from './pages/setting/setting'
+import Setting from "./pages/setting/setting";
 import Homepage from "./pages/homepage";
 import Friends from "./pages/friends";
 import Stories from "./pages/stories";

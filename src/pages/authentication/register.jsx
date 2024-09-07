@@ -45,7 +45,8 @@ const Register = () => {
       follows: [],
       groups: [],
       FirstTime : false,
-      profile: `` 
+      profile: ``,
+      bio:"" 
     };
 
     if (
