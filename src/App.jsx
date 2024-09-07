@@ -19,7 +19,7 @@ function App() {
       <MyProvider>
   
         <Routes>
-        <Route path="/" element={<LandingPage />} />
+         <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>} />
           <Route path="/verification" element={<Verification />}/>
