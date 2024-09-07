@@ -12,6 +12,7 @@ import Grouppage from "./pages/grouppage";
 import Friends from "./pages/friends";
 import Stories from "./pages/stories";
 import LandingPage from "./pages/Landing-Page/landingPage";
+import { ErrorPage } from "./pages/Error/error";
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
       <MyProvider>
   
         <Routes>
+          <Route path="/*" element={< ErrorPage/>} />
         <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>} />
