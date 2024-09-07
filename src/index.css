@@ -23,3 +23,9 @@
 .dark-mode .spaning{
     color: #1c64f2;
 }
+.bg-error{
+    background-image: url('https://cdn.prod.website-files.com/6009ec8cda7f305645c9d91b/6217a5a3d58471ba1344c804_21-modern-small-business-website-examples.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}

@@ -13,12 +13,14 @@ import Stories from "./pages/stories";
 import LandingPage from "./pages/Landing-Page/landingPage";
 import GroupsPage from "./pages/grouppage";
 import Group from "./pages/group";
+import { ErrorPage } from "./pages/Error/error";
 function App() {
   return (
     <>
       <MyProvider>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/*" element={< ErrorPage/>} />
+        <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/verification" element={<Verification />} />
