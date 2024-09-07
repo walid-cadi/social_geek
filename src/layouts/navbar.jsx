@@ -89,7 +89,7 @@ export const Navbar = () => {
         </Link>
 
         {showNotifications && (
-          <div className="absolute right-48 mt-80 w-80 bg-white rounded-lg shadow-lg">
+          <div className="absolute right-48 mt-80 w-80 bg-white rounded-lg shadow-lg z-10">
             <div className="p-4">
               <h3 className="text-lg font-semibold">Notification</h3>
               <div className="mt-4 space-y-2">
