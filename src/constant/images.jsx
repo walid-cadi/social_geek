@@ -12,7 +12,9 @@ let dataImages = {
     notuser3: require('../assets/images/user-9.png'),
     notuser4: require('../assets/images/user-4.png'),
     logo: require('../assets/images/image_2-Photoroom-removebg-preview.png'),
-    landing: require('../assets/images/landing.png')
+    landing: require('../assets/images/landing.png'),
+    imggrp1:require('../assets/images/badb54dd67cc327470b8995367283a39.jpg'),
+    imggrp2:require('../assets/images/image_processing20210409-15617-b73kq1.png')
 }
 export default dataImages
 
