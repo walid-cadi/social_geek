@@ -30,7 +30,7 @@ const Login = () => {
         navigate("/home");
       }
 
-      setUserData({ ...user, firstTime: false });
+      setUserData({ ...user,  firstTime: false });
     } else {
       setLoginMessage("Invalid email or password. Please try again.");
     }

@@ -41,7 +41,7 @@ const UpDateProfile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const updatedProfile = { ...userData, profile: profileImage, cover: coverImage, firstTime: true };
+    const updatedProfile = { ...userData, profile: profileImage, cover: coverImage,  firstTime: true };
 
     setUserData(updatedProfile);
 
