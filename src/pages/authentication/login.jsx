@@ -35,6 +35,7 @@ const Login = () => {
       setLoginMessage("Invalid email or password. Please try again.");
     }
   };
+console.log("post",userData);
 
   return (
     <div className="bg-gray-100 text-gray-900 flex justify-center w-[100%] h-[45vw]">

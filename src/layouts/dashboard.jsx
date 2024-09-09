@@ -7,7 +7,7 @@ export const SideBar = (props) => {
     const navigate=useNavigate()
     const {setUserData}=MyAppContext()
     const handleLogout = () => {
-        setUserData(null);
+        // setUserData(null);
         navigate('/login'); 
     };
     return (

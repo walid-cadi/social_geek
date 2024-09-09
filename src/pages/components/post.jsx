@@ -66,8 +66,7 @@ const ImageCarousel = ({ images }) => {
 
 export const Post = () => {
    
-    const {userData,setUserData}=MyAppContext()
-    
+    const {userData,setUserData , dataProfile, setDataProfile}=MyAppContext()
     const [postContent, setPostContent] = useState("");
     const [selectedMedia, setSelectedMedia] = useState([]);
     const [publicationDate, setPublicationDate] = useState("");
@@ -75,6 +74,7 @@ export const Post = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
+   
     console.log("useerdata",userData);
     
     const openModal = (message) => {
@@ -138,7 +138,7 @@ export const Post = () => {
         updatedPosts[index].isEditing = !updatedPosts[index].isEditing;
         setUserData((user) => ({
             ...user,
-            post: updatedPosts // Just replace the post array with updatedPosts
+            post: updatedPosts 
         }));
     };
 
@@ -146,7 +146,7 @@ export const Post = () => {
         const updatedPosts = userData.post.filter((_, i) => i !== index);
         setUserData((user) => ({
             ...user,
-            post: updatedPosts // Replace the post array with updatedPosts
+            post: updatedPosts 
         }));
     };
 
@@ -155,7 +155,7 @@ export const Post = () => {
         updatedPosts[index].content = e.target.value;
         setUserData((user) => ({
             ...user,
-            post: updatedPosts // Replace the post array with updatedPosts
+            post: updatedPosts 
         }));
     };
 
@@ -169,7 +169,7 @@ export const Post = () => {
         updatedPosts[index].isLiked = !updatedPosts[index].isLiked;
         setUserData((user) => ({
             ...user,
-            post: updatedPosts // Replace the post array with updatedPosts
+            post: updatedPosts 
         }));
     };
     const handleCommentSubmit = (index, comment) => {
@@ -177,7 +177,7 @@ export const Post = () => {
         updatedPosts[index].comments.push(comment);
         setUserData((user) => ({
             ...user,
-            post: updatedPosts // Replace the post array with updatedPosts
+            post: updatedPosts 
         }));
     };
 
