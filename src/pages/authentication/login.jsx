@@ -35,10 +35,11 @@ const Login = () => {
       setLoginMessage("Invalid email or password. Please try again.");
     }
   };
+console.log("post",userData);
 
   return (
     <div className="bg-gray-100 text-gray-900 flex justify-center w-[100%] h-[45vw]">
-      <Link to="/register" >register</Link>
+      <Link to="/register">register</Link>
       <div className="m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className="w-1/2 flex flex-col justify-center items-center">
           <div>

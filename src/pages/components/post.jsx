@@ -69,7 +69,7 @@ const ImageCarousel = ({ images }) => {
 
 export const Post = () => {
    
-    const {userData,setUserData}=MyAppContext()
+    const {userData,setUserData , dataProfile, setDataProfile}=MyAppContext()
     const [postContent, setPostContent] = useState("");
     const [selectedMedia, setSelectedMedia] = useState([]);
     const [publicationDate, setPublicationDate] = useState("");
@@ -77,7 +77,9 @@ export const Post = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
-
+   
+    console.log("useerdata",userData);
+    
     const openModal = (message) => {
         setModalMessage(message);
         setIsModalOpen(true);
@@ -184,7 +186,7 @@ export const Post = () => {
 
     return (
         <>
-            <div className="bg-white rounded-lg h-auto w-[100vw] md:w-[50vw] mt-2 shadow-md p-4 md:p-4 postt">
+            <div className="bg-white rounded-lg h-auto w-[50vw] mt-2 shadow-md p-6">
                 <div className="mb-4">
                     <div className="flex items-center mb-3 gap-2">
                         <button className="text-center bg-gray-200 p-3 rounded-full">
@@ -247,9 +249,9 @@ export const Post = () => {
 
             <div className="mt-6">
                 {userData.post.map((post, index) => (
-                    <div key={index} className="  mb-4 bg-white rounded-lg h-auto w-[100vw] md:w-[50vw] mt-2 shadow-md p-4 md:p-4 ">
+                    <div key={index} className="bg-white p-4 rounded-lg shadow-md mb-4">
                         <div className="flex items-center mb-2">
-                            <img src={Images.notuser3} alt="User" className="w-12 h-12 rounded-full mr-2" />
+                            <img src={userData?.profile} alt="User" className="w-12 h-12 rounded-full mr-2" />
                             <div>
                                 <p className="font-semibold">{post.user.name}</p>
                                 <p className="text-gray-500 text-sm">{post.date}</p>
@@ -335,98 +337,10 @@ export const Post = () => {
                         </section>
                     </div>
                 ))}
-             <div className="block md:hidden">
-                 {/* friend */}
-              <div className=" mx-auto ms-10 flex  items-center mb-3">
-    <div className="w-[320px] rounded-lg flex flex-col gap-3 py-2 border bg-white dark:border-gray-500 dark:bg-gray-800">
-      <div className="flex items-center justify-between p-4 dark:text-white">
-        <h4>Friends Request</h4>
-        <FiInfo className='text-gray-500'/>
-      </div>
-      <div className="w-full flex ps-5 gap-2 px-2">
-        <img src={Images.notuser2} alt="User profile" className="w-[3.4rem] h-[3.4rem] rounded-full" />
-        <div className="flex flex-col">
-          <h4 className="text-md text-gray-800 font-semibold dark:text-gray-200">Ethiopian Airlines</h4>
-          <h6 className="text-sm text-gray-400 dark:text-gray-400">Airlines and Aviation</h6>
-         
-          <div className="w-fit  flex justify-center items-center bg-blue-600 my-2 py-1 px-5 rounded-full dark:border-gray-200 dark:text-white">
-            <h5 className="text-white">Follow</h5>
-          </div>
-        </div>
-      </div>
-      <div className="w-full flex gap-2 ps-5 px-2">
-        <img src={Images.notuser1} alt="User profile" className="w-[3.4rem] h-[3.4rem] rounded-full" />
-        <div className="flex flex-col">
-          <h4 className="text-md text-gray-800 font-semibold dark:text-gray-200">Eyasu Abera</h4>
-          <h6 className="text-sm text-gray-400 dark:text-gray-400">System Administrator</h6>
-         
-          <div className="w-fit  flex justify-center items-center  bg-blue-600 my-2 py-1 px-5 rounded-full dark:border-gray-200 dark:text-white">
-            <i className="fa fa-lock" aria-hidden="true" />
-            <h5 className="text-white">Follow</h5>
-          </div>
-        </div>
-      </div>
-      <div className="w-full flex gap-2 ps-5 px-2">
-        <img src={Images.notuser3} alt="User profile" className="w-[3.4rem] h-[3.4rem] rounded-full" />
-        <div className="flex flex-col">
-          <h4 className="text-md text-gray-800 font-semibold dark:text-gray-200">Google</h4>
-          <h6 className="text-sm text-gray-400 dark:text-gray-400">Software Development</h6>
-        
-          <div className="w-fit  flex justify-center items-center  bg-blue-600 my-2 py-1 px-5 rounded-full dark:border-gray-200 dark:text-white">
-            <i className="fa fa-lock" aria-hidden="true" />
-            <h5 className="text-white">Follow</h5>
-          </div>
-        </div>
-      </div>
-      <div className="w-full flex gap-1 px-4 pb-2 justify-between items-center">
-        <Link to="/friend_request">
-        <h6 className="text-md text-gray-700  dark:text-gray-400">View all</h6>
-        </Link>
-        <FaArrowRight className='text-gray-600'/>
-      </div>
-    </div>
-              </div>
-                {/* suggest pages */}
-              <div className="w-full max-w-sm p-4 bg-white shadow-lg rounded-lg">
-          <div className="flex justify-between items-center mb-4">
-           <h2 className="text-gray-700 font-semibold">Suggest Pages</h2>
-          <a href="#" className="text-blue-500 text-sm hover:underline">See all</a>
-          </div>
-
-      <div className="space-y-6">
-    
-        <div className="bg-gray-100 p-4 rounded-lg">
-          <img
-            src={Images.imggrp2}
-            className="w-full h-36 object-cover rounded-lg mb-3"
-          />
-          <button className="w-full flex items-center justify-center gap-2 bg-gray-200 text-gray-600 py-2 rounded-full hover:bg-gray-300 transition-all">
-            <FiExternalLink />
-            Like Page
-          </button>
-        </div>
-
-        
-        <div className="bg-gray-100 p-4 rounded-lg">
-          <img
-            src={Images.imggrp1}
-            className="w-full h-36 object-cover rounded-lg mb-3"
-          />
-          <button className="w-full flex items-center justify-center gap-2 bg-gray-200 text-gray-600 py-2 rounded-full hover:bg-gray-300 transition-all">
-            <FiExternalLink />
-            Like Page
-          </button>
-        </div>
-      </div>
-              </div>
-             
-
-             </div>
-
-             
-
+                
             </div>
-            {/* Modal  */}
+
+            {/* Modal for alerts */}
             <Modal isOpen={isModalOpen} closeModal={closeModal} message={modalMessage} />
         </>
     );
