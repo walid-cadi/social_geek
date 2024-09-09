@@ -2,6 +2,7 @@ import React from 'react';
 import { Post } from './components/post';
 import RightBar from './components/rightbar';
 import { StoriesSection } from './components/Stories';
+import '../../src/style/homePage.css'
 
 
 const Home = () => {
