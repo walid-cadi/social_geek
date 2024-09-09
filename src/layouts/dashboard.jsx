@@ -59,35 +59,43 @@ export const SideBar = (props) => {
                     </ul>
                 </div>
 
-                <div className="mb-4">
-                    <div className="text-gray-500 font-semibold text-xs mb-2">More Pages</div>
-                    <ul>
-                        <li className="flex items-center mb-3">
-                            <Link to="/email-box" className="flex items-center text-gray-700">
-                                <FiInbox className="text-blue-500 text-xl" />
-                                <span className="ml-3">Email Box</span>
-                            </Link>
-                        </li>
-                        <li className="flex items-center mb-3">
-                            <Link to="/friend_request" className="flex items-center text-gray-700">
-                                <FiUserPlus className="text-blue-500 text-xl" />
-                                <span className="ml-3">Friends Request</span>
-                            </Link>
-                        </li>
-                        <li className="flex items-center mb-3">
-                            <Link to="/latest-event" className="flex items-center text-gray-700">
-                                <FiMapPin className="text-blue-500 text-xl" />
-                                <span className="ml-3">Latest Event</span>
-                            </Link>
-                        </li>
-                        <li className="flex items-center mb-3">
-                            <Link to="/live-stream" className="flex items-center text-gray-700">
-                                <FiYoutube className="text-blue-500 text-xl" />
-                                <span className="ml-3">Live Stream</span>
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
+        <div className="mb-4">
+          <div className="text-gray-500 font-semibold text-xs mb-2">
+            More Pages
+          </div>
+          <ul>
+            <li className="flex items-center mb-3">
+              <Link to="/email-box" className="flex items-center text-gray-700">
+                <FiInbox className="text-blue-500 text-xl" />
+                <span className="ml-3">Email Box</span>
+              </Link>
+            </li>
+            <li className="flex items-center mb-3">
+              <Link
+                to="/friend_request"
+                className="flex items-center text-gray-700">
+                <FiUserPlus className="text-blue-500 text-xl" />
+                <span className="ml-3">Friends Request</span>
+              </Link>
+            </li>
+            <li className="flex items-center mb-3">
+              <Link
+                to="/latest-event"
+                className="flex items-center text-gray-700">
+                <FiMapPin className="text-blue-500 text-xl" />
+                <span className="ml-3">Latest Event</span>
+              </Link>
+            </li>
+            <li className="flex items-center mb-3">
+              <Link
+                to="/live-stream"
+                className="flex items-center text-gray-700">
+                <FiYoutube className="text-blue-500 text-xl" />
+                <span className="ml-3">Live Stream</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
 
                 <div>
                     <div className="text-gray-500 font-semibold text-xs mb-2">Account</div>

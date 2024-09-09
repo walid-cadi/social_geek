@@ -11,10 +11,12 @@ import Homepage from "./pages/homepage";
 import Friends from "./pages/friends";
 import Stories from "./pages/stories";
 import LandingPage from "./pages/Landing-Page/landingPage";
+import UpDateProfile from "./pages/authentication/upDateProfile";
 import GroupsPage from "./pages/grouppage";
 import Group from "./pages/group";
 import { ErrorPage } from "./pages/Error/error";
 import { useEffect } from "react";
+
 function App() {
   const location = useLocation();
   const { hash, pathname, search } = location;
@@ -34,6 +36,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/verification" element={<Verification />} />
+          <Route path="/update" element={<UpDateProfile />} />
           <Route path="/profile" element={<Profilee />} />
           <Route path="/setting" element={<Settings />} />
           <Route path="/home" element={<Homepage />} />

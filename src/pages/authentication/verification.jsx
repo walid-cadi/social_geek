@@ -9,15 +9,15 @@ const Verification = () => {
   const [notificationType, setNotificationType] = useState(""); 
   const navigate = useNavigate();
 
-  const { dataProfile, setDataProfile } = MyAppContext();
+  const { dataProfile, setDataProfile, generateCode  } = MyAppContext();
   const newProfile = dataProfile
 if (newProfile) {
   setDataProfile(newProfile)
-  console.log(newProfile);
-  console.log(dataProfile?.length -1);
+  // console.log(newProfile);
+  // console.log(dataProfile?.length -1);
 }
-console.log(dataProfile);
-console.log(newProfile);
+// console.log(dataProfile);
+// console.log(newProfile);
 
 
  
@@ -38,7 +38,9 @@ console.log(newProfile);
   };
 
   const handleResend = () => {
-    generatedCode(); 
+
+      const code = generateCode();
+
     setNotificationMessage(`A new code has been sent to your mobile number: ${newProfile.generateCode}`);
     setNotificationType("info");
   };
@@ -113,7 +115,7 @@ console.log(newProfile);
                   Verify
                 </button>
                 <Link
-                  className="inline-block align-baseline font-bold text-sm bg-blue-500 hover:text-blue-800"
+                  className="inline-block align-baseline font-bold text-sm hover:text-blue-800"
                   to="#"
                   onClick={handleResend}
                 >

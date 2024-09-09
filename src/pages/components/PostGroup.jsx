@@ -4,7 +4,7 @@ import { FaHeart, FaPen, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Images, JsonData } from "../../constant";
 import { MyAppContext } from "../../context";
 
-export const PostGroup = () => {
+export const PostGroup = ({ isadmin, findgroup }) => {
   const { userData, setUserData } = MyAppContext();
   const { groups, setGroups } = MyAppContext();
 
@@ -41,7 +41,7 @@ export const PostGroup = () => {
       date: publicationDate || new Date().toLocaleString(),
       user: {
         name: `${userData.firstName} ${userData.lastName}`,
-        image: userData.profil,
+        image: userData.profile,
       },
       isEditing: false,
       likes: 0,
@@ -53,6 +53,8 @@ export const PostGroup = () => {
     setPostContent("");
     setSelectedImages([]);
     setPublicationDate("");
+    findgroup.posts.push(newPost);
+    //console.log(findgroup)
   };
 
   const handleEditClick = (index) => {
@@ -129,63 +131,67 @@ export const PostGroup = () => {
 
   return (
     <>
-      <div className="bg-white rounded-lg h-auto w-[50vw] mt-2 shadow-md p-6">
-        <div className="mb-4">
-          <div className="flex items-center mb-3 gap-2">
-            <button className="text-center bg-gray-200 p-3 rounded-full">
-              <FaPen className="text-blue-600" />
-            </button>
-            <h2 className="text-sm font-semibold text-gray-400">Create Post</h2>
-          </div>
-
-          <div className="bg-transparent border-2 p-4 rounded-lg mt-2">
-            <textarea
-              className="w-full bg-transparent border-none outline-none"
-              placeholder="What's on your mind?"
-              rows="3"
-              value={postContent}
-              onChange={handleContentChange}></textarea>
-          </div>
-
-          <div className="flex justify-between mt-2 ps-2">
-            <div className="flex items-center space-x-4">
-              <label className="flex items-center space-x-1 text-gray-500 cursor-pointer">
-                <FiImage color="#10d876" className="text-xl" />
-                <span className="ps-1">Photo</span>
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={handleImageChange}
-                  multiple
-                />
-              </label>
-              <label className="flex items-center space-x-1 text-gray-500 cursor-pointer">
-                <FiCamera color="#fe9431" className="text-xl" />
-                <span className="ps-1">Video</span>
-              </label>
+      {isadmin && (
+        <div className="bg-white rounded-lg h-auto w-[50vw] mt-2 shadow-md p-6">
+          <div className="mb-4">
+            <div className="flex items-center mb-3 gap-2">
+              <button className="text-center bg-gray-200 p-3 rounded-full">
+                <FaPen className="text-blue-600" />
+              </button>
+              <h2 className="text-sm font-semibold text-gray-400">
+                Create Post
+              </h2>
             </div>
-            <button
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg"
-              onClick={handleSubmit}>
-              Post
-            </button>
-          </div>
 
-          {selectedImages.length > 0 && (
-            <div className="mt-4 relative flex items-center justify-center">
-              <Carousel images={selectedImages} />
+            <div className="bg-transparent border-2 p-4 rounded-lg mt-2">
+              <textarea
+                className="w-full bg-transparent border-none outline-none"
+                placeholder="What's on your mind?"
+                rows="3"
+                value={postContent}
+                onChange={handleContentChange}></textarea>
             </div>
-          )}
+
+            <div className="flex justify-between mt-2 ps-2">
+              <div className="flex items-center space-x-4">
+                <label className="flex items-center space-x-1 text-gray-500 cursor-pointer">
+                  <FiImage color="#10d876" className="text-xl" />
+                  <span className="ps-1">Photo</span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleImageChange}
+                    multiple
+                  />
+                </label>
+                <label className="flex items-center space-x-1 text-gray-500 cursor-pointer">
+                  <FiCamera color="#fe9431" className="text-xl" />
+                  <span className="ps-1">Video</span>
+                </label>
+              </div>
+              <button
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+                onClick={handleSubmit}>
+                Post
+              </button>
+            </div>
+
+            {selectedImages.length > 0 && (
+              <div className="mt-4 relative flex items-center justify-center">
+                <Carousel images={selectedImages} />
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="mt-6">
-        {posts.map((post, index) => (
+        {findgroup.posts.map((post, index) => (
           <div key={index} className="bg-white p-4 rounded-lg shadow-md mb-4">
             <div className="flex items-center mb-2">
               <img
-                src={Images.notuser3}
+                src={post.image}
                 alt="User"
                 className="w-12 h-12 rounded-full mr-2"
               />
