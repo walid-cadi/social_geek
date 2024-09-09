@@ -1,0 +1,17 @@
+@media (max-width : 428px){
+    .friend{
+    flex-direction: column;
+    width: 100%;
+    }
+    .request{
+        width: 70vw;
+    }
+    .nav-search{
+        width: 35vw;
+        height: 5vh;
+    }
+    .btn{
+        height: 6vh;
+        width: 12vw;
+    }
+}
