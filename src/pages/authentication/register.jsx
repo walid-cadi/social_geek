@@ -45,7 +45,7 @@ const Register = () => {
       followers: [],
       follows: [],
       groups: [],
-      FirstTime : false,
+      firstTime : false,
       profile: ``,
       bio:"" ,
       profile:" ",

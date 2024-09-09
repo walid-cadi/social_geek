@@ -24,13 +24,13 @@ const Login = () => {
       console.log("Logged in user:", user);
       test(user);
 
-      if (!user.firstTime || !user.profile || !user.cover) {
+      if (!user.firstTime && !user.profile && !user.cover) {
         navigate("/update");
       } else {
         navigate("/home");
       }
 
-      setUserData({ ...user, firstTime: false });
+      setUserData({ ...user, firstTime: true });
     } else {
       setLoginMessage("Invalid email or password. Please try again.");
     }

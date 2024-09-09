@@ -9,7 +9,6 @@ export const Groups = () => {
   //const [groups, setGroups] = useState([]);
   const { groups, setGroups } = MyAppContext();
   const { userData, setUserData } = MyAppContext();
-  const [searchGroup, setSearchGroup] = useState(groups);
   const [showModal, setShowModal] = useState(false);
 
   const navigate = useNavigate();
@@ -69,49 +68,12 @@ export const Groups = () => {
     console.log(userData);
   };
 
-  const handleSearch = (searchText) => {
-    const newTab = [...groups];
-    let result = newTab.filter((ele) =>
-      ele.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-    if (searchText) {
-      setSearchGroup(result);
-    } else {
-      setSearchGroup(groups);
-    }
-  };
-
   return (
     <>
       <div className="w-[95%] bg-[#f4f5f7] min-h-screen pt-10 flex flex-col items-center  gap-5 ">
         <div className="bg-[white] rounded p-9 w-[70vw] flex items-center justify-between">
           <h1 className="text-2xl font-bold">Groups</h1>
           <div className="flex items-center gap-2">
-            <div className="flex items-center relative">
-              <svg
-                className="w-4 h-4 text-blue-900 dark:text-white absolute left-[13vw] focus:outline-none"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24">
-                <path
-                  stroke="gray"
-                  strokeLinecap="round"
-                  strokeWidth="2"
-                  d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
-                />
-              </svg>
-              <input
-                onChange={(e) => {
-                  handleSearch(e.target.value);
-                }}
-                type="text"
-                className="w-[15vw] border-0 border-blue-800 bg-blue-50 text-gray-700 p-3 rounded-lg custom-placeholder"
-                placeholder="Search here"
-              />
-            </div>
             <div>
               {/* Modal toggle */}
               <button
@@ -270,18 +232,18 @@ export const Groups = () => {
                         Enter
                       </button>
                       {e.admin != userData.email && (
-                      <button
-                        onClick={() => {
-                          follow(i);
-                        }}
-                        className={` bg-blue-600 w-[130px] px-4 py-2.5 rounded-full ${
-                          e.follow
-                            ? "text-blue-600 bg-white border-blue-600 border"
-                            : "text-white"
-                        }`}>
-                        {!e.follow ? "Follow" : "unFollow"}
-                      </button>
-                    )}
+                        <button
+                          onClick={() => {
+                            follow(i);
+                          }}
+                          className={` bg-blue-600 w-[130px] px-4 py-2.5 rounded-full ${
+                            e.follow
+                              ? "text-blue-600 bg-white border-blue-600 border"
+                              : "text-white"
+                          }`}>
+                          {!e.follow ? "Follow" : "unFollow"}
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
