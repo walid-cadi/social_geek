@@ -45,7 +45,9 @@ const Register = () => {
       followers: [],
       follows: [],
       groups: [],
-      firstTime: false,
+      firstTime : false,
+      profile: ``,
+      bio:"" ,
       profile:" ",
       biography: "",
       cover : ""
@@ -79,8 +81,8 @@ const Register = () => {
       navigate("/verification", {
         state: { notificationMessage: "Registration Successful!" },
       });
-
-      console.log(newProfile);
+      
+      //console.log(newProfile);
     }
   };
 

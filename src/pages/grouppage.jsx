@@ -2,7 +2,7 @@ import React from 'react';
 import { Groups } from './groups/Groups';
 import Navbar from "../layouts/navbar"
 import SideBar from "../layouts/dashboard"
-const Grouppage = () => {
+const GroupsPage = () => {
     return (
         <>
             <div>
@@ -17,4 +17,4 @@ const Grouppage = () => {
     );
 }
 
-export default Grouppage;
+export default GroupsPage;

@@ -15,16 +15,7 @@ const ExploreStories = () => {
         <div>
           <StoriesSection/>  
         </div>
-        <div className='flex gap-4 justify-center pt-5'>
-        {stories.map((story, index) => (
-                <div key={index} className="relative w-28 h-44 flex-shrink-0 rounded-lg bg-gray-200 overflow-hidden">
-                    <img src={story.image} alt={story.name} className="w-48 h-40 object-cover" />
-                    <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-30 p-2 text-center">
-                        <p className="text-white text-sm font-semibold">{story.name}</p>
-                    </div>
-                </div>
-            ))}
-        </div>
+  
       
         </>
     

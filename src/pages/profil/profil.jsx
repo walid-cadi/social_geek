@@ -1,13 +1,11 @@
 import React from "react";
 import {Post} from "../components/post"
-import { BsCardImage } from "react-icons/bs";
-import { FaInstagram } from "react-icons/fa";
-import { FiLinkedin, FiMessageCircle, FiTwitter, FiUsers } from "react-icons/fi";
+
 import { MyAppContext } from "../../context";
 
 const Profil = () => {
 
-  const  {userData} = MyAppContext() 
+  const { userData } = MyAppContext(); 
 
   return (
     <>
@@ -32,45 +30,61 @@ const Profil = () => {
             <p className="text-gray-500">{userData.email}</p>
           </div>
           <ul className="flex justify-center pt-3 gap-7">
+          <li className="flex flex-col items-center justify-around">
+              <h3 className="text-base font-bold">Posts</h3>
+              <h6 className="text-base font-bold">2</h6>
+            </li>
+
             <li className="flex flex-col items-center justify-around">
-              <BsCardImage className=" font-bold text-blue-600 text-xl" />
-              <h6 className="text-base  text-gray-600">4</h6>
+              <h3 className="text-base font-bold">Posts</h3>
+              <h6 className="text-base font-bold">8</h6>
             </li>
-            <li className="flex flex-col items-center justify-between">
-              <FiUsers className="text-blue-600 text-xl"/>
-              <div className="text-gray-600">10k</div>
-            </li>
+
             <li className="flex flex-col items-center justify-around">
-            <FiMessageCircle className="text-blue-600 text-xl "/>
-              <div className="text-gray-600">15</div>
+              <h3 className="text-base font-bold">Posts</h3>
+              <h6 className="text-base font-bold">10</h6>
             </li>
+
           </ul>
         </div>
         <div className="flex w-[100%] ">
-          <div class="w-[32%]  h-[70vh] border shadow-lg rounded-xl mx-2 bg-white  mt-3 ">
+        <div class="w-[32%]  h-[50vh] border shadow-lg rounded-xl mx-2 bg-white  mt-3 ">
             <div class="p-4">
               <h4 class="font-bold mb-3 text-sm text-gray-900">Bio</h4>
               <p class="font-medium text-gray-500 leading-6 text-xs mb-0">
-               ggggggggggggggggggggggg
+                {userData.bio ||  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbinulla dolor, ornare at commodo non, feugiat non nisi. Phasellusfaucibus mollis pharetra. Proin blandit ac massa sed rhoncus."}
               </p>
             </div>
-            <div class="border-t  p-4 ps-5">
-               <h6 className="font-semibold font-serif pb-4">contact info</h6>
-               <div className="flex gap-2 items-center">
-                <FaInstagram className="text-fuchsia-950 text-lg" />
-                 <h6>@user_ii</h6>
-                </div>
-                <div className="flex gap-2 items-center pt-3">
-                <FiTwitter className="text-blue-600 text-lg" />
-                 <h6>@user_twit</h6>
-                </div>
-                <div className="flex gap-2 items-center pt-3">
-                <FiLinkedin className="text-blue-600 text-lg" />
-                 <h6>@user_link</h6>
-                </div>
+            <div class="border-t flex items-center p-4">
+              <i class="feather-lock text-gray-500 mr-3 text-lg"></i>
+              <h4 class="font-bold text-gray-900 text-xs mt-0">
+                Private
+                <span class="block text-xs font-medium mt-1 leading-3 text-gray-500">
+                  What's up, how are you?
+                </span>
+              </h4>
             </div>
-
-            
+            <div class="flex items-center pt-0 p-4">
+              <i class="feather-eye text-gray-500 mr-3 text-lg"></i>
+              <h4 class="font-bold text-gray-900 text-xs mt-0">
+                Visible
+                <span class="block text-xs font-medium mt-1 leading-3 text-gray-500">
+                  Anyone can find you
+                </span>
+              </h4>
+            </div>
+            <div class="flex items-center pt-0 p-4">
+              <i class="feather-map-pin text-gray-500 mr-3 text-lg"></i>
+              <h4 class="font-bold text-gray-900 text-xs mt-1">
+                Flodia, Austria
+              </h4>
+            </div>
+            <div class="flex items-center pt-0 p-4">
+              <i class="feather-users text-gray-500 mr-3 text-lg"></i>
+              <h4 class="font-bold text-gray-900 text-xs mt-1">
+                General Group
+              </h4>
+            </div>
           </div>
     
           <div >
