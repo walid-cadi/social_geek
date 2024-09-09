@@ -30,7 +30,7 @@ const LandingPage = () => {
                             <div className="flex items-center ps-5 pe-20">
                                 <a href="/" className="flex items-center text-blue-600">
                                     <img src={Images.logo} className="w-[25px] pt-1" alt="" />
-                                    <span className="ml-2 font-bold text-2xl">SocialGeek.</span>
+                                    <span className="ml-2 font-bold text-2xl">SocialGeeks.</span>
                                 </a>
                             </div>
                         </div>
