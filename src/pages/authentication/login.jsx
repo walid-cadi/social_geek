@@ -19,16 +19,19 @@ const Login = () => {
     );
     
     
-
     if (user) {
-      
       setLoginMessage("Login successful!");
       console.log("Logged in user:", user);
-      test(user)
-      console.log(userData);
-      navigate("/home");
+      test(user);
+
+      if (!user.firstTime || !user.profile || !user.cover) {
+        navigate("/update");
+      } else {
+        navigate("/home");
+      }
+
+      setUserData({ ...user, firstTime: false });
     } else {
-      
       setLoginMessage("Invalid email or password. Please try again.");
     }
   };

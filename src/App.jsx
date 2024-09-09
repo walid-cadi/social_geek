@@ -11,24 +11,25 @@ import Homepage from "./pages/homepage";
 import Friends from "./pages/friends";
 import Stories from "./pages/stories";
 import LandingPage from "./pages/Landing-Page/landingPage";
-import GroupsPage from "./pages/grouppage";
-import Group from "./pages/group";
-import { ErrorPage } from "./pages/Error/error";
+import UpDateProfile from "./pages/authentication/upDateProfile";
+import { GroupPage } from "./pages/groups/Group";
+import { Groups } from "./pages/groups/Groups";
 function App() {
   return (
     <>
       <MyProvider>
         <Routes>
-          <Route path="/*" element={< ErrorPage/>} />
-        <Route path="/" element={<LandingPage />} />
+         
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/verification" element={<Verification />} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/verification" element={<Verification />}/>
+          <Route path="/update" element={<UpDateProfile />}/>
           <Route path="/profile" element={<Profilee />} />
           <Route path="/setting" element={<Settings />} />
           <Route path="/home" element={<Homepage />} />
-          <Route path="/groups" element={<GroupsPage />} />
-          <Route path="/group/:grpName" element={<Group />} />
+          <Route path="/groups" element={<GroupPage />} />
+          <Route path="/group/:grpName" element={<Groups />} />
           <Route path="/friend_request" element={<Friends />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/stories" element={<Stories />} />
