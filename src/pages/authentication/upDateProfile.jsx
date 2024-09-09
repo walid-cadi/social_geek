@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MyAppContext } from "../../context";
 
 const UpDateProfile = () => {
-  const { userData, setUserData } = MyAppContext();
+  const { dataProfile, setDataProfile, userData } = MyAppContext();
   const [profileImage, setProfileImage] = useState("");
   const [coverImage, setCoverImage] = useState("");
   const navigate = useNavigate();
@@ -14,10 +14,6 @@ const UpDateProfile = () => {
       const reader = new FileReader();
       reader.onloadend = () => {
         setProfileImage(reader.result);
-        setUserData((prevData) => ({
-          ...prevData,
-          profile: reader.result,
-        }));
       };
       reader.readAsDataURL(file);
     }
@@ -29,10 +25,6 @@ const UpDateProfile = () => {
       const reader = new FileReader();
       reader.onloadend = () => {
         setCoverImage(reader.result);
-        setUserData((prevData) => ({
-          ...prevData,
-          cover: reader.result,
-        }));
       };
       reader.readAsDataURL(file);
     }
@@ -40,13 +32,18 @@ const UpDateProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    let findUser =  dataProfile.findIndex(profile => profile.email === userData.email && profile.password === userData.password);
+    const  newTab = [...dataProfile]
+    
+    newTab[findUser].profile= profileImage
+    newTab[findUser].cover= coverImage
+    newTab[findUser].firstTime=  true 
 
-    const updatedProfile = { ...userData, profile: profileImage, cover: coverImage,  firstTime: true };
 
-    setUserData(updatedProfile);
-
-    console.log("Updated profile:", updatedProfile);
-    console.log("Updated profile:", userData);
+setDataProfile(newTab)
+  
+    console.log("data profile:", dataProfile);
 
     navigate("/home");
   };
