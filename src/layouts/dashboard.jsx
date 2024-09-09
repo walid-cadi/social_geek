@@ -1,8 +1,15 @@
 import React from 'react';
 import { FiTv, FiAward, FiGlobe, FiZap, FiUser, FiInbox, FiHome, FiMapPin, FiYoutube, FiSettings, FiPieChart, FiMessageSquare, FiShoppingBag, FiUsers, FiUserPlus } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
-
+import { LuLogOut } from 'react-icons/lu';
+import { Link, useNavigate } from 'react-router-dom';
+import {MyAppContext} from "../context/index"
 export const SideBar = (props) => {
+    const navigate=useNavigate()
+    const {setUserData}=MyAppContext()
+    const handleLogout = () => {
+        setUserData(null);
+        navigate('/login'); 
+    };
     return (
         <>
             <nav className="w-[20%] h-[85vh] bg-white rounded-2xl shadow-lg p-4 mt-2 ms-5 ">
@@ -103,6 +110,12 @@ export const SideBar = (props) => {
                                 <span className="ml-3">Activities</span>
                             </Link>
                         </li>
+                        <li className="flex items-center mb-3">
+                        <button onClick={handleLogout} className="flex items-center text-gray-700">
+                            <LuLogOut className="text-gray-500 text-lg" />
+                            <span className="ml-3">Logout</span>
+                        </button>
+                    </li>
                     </ul>
                 </div>
             

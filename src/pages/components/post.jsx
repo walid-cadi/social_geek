@@ -67,6 +67,7 @@ const ImageCarousel = ({ images }) => {
 export const Post = () => {
    
     const {userData,setUserData}=MyAppContext()
+    
     const [postContent, setPostContent] = useState("");
     const [selectedMedia, setSelectedMedia] = useState([]);
     const [publicationDate, setPublicationDate] = useState("");
@@ -74,7 +75,8 @@ export const Post = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
-
+    console.log("useerdata",userData);
+    
     const openModal = (message) => {
         setModalMessage(message);
         setIsModalOpen(true);
@@ -246,7 +248,7 @@ export const Post = () => {
                 {userData.post.map((post, index) => (
                     <div key={index} className="bg-white p-4 rounded-lg shadow-md mb-4">
                         <div className="flex items-center mb-2">
-                            <img src={Images.notuser3} alt="User" className="w-12 h-12 rounded-full mr-2" />
+                            <img src={userData?.profile} alt="User" className="w-12 h-12 rounded-full mr-2" />
                             <div>
                                 <p className="font-semibold">{post.user.name}</p>
                                 <p className="text-gray-500 text-sm">{post.date}</p>
@@ -332,6 +334,7 @@ export const Post = () => {
                         </section>
                     </div>
                 ))}
+                
             </div>
 
             {/* Modal for alerts */}
