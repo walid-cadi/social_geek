@@ -14,7 +14,7 @@ export const Groups = () => {
 
   const navigate = useNavigate();
 
-  const data = JsonData.users[0];
+  //const data = JsonData.users[0];
   //console.log(data);
 
   //* select image
@@ -22,6 +22,7 @@ export const Groups = () => {
     setGroupCover(URL.createObjectURL(e.target.files[0]));
   };
 
+  //* create group
   const addGroup = () => {
     if (groupName) {
       const newTab = [...groups];
@@ -31,26 +32,41 @@ export const Groups = () => {
         profil: userData.profile,
         Fname: userData.firstName,
         Lname: userData.lastName,
+        admin: userData.email,
         follow: false,
         posts: [],
         members: [],
-        admin: [userData],
       };
       newTab.push(newGroup);
       setGroups(newTab);
-      userData.groups.push(groups);
+      userData.groups.push(newGroup);
       console.log(userData);
       setGroupName("");
       setGroupCover(null);
       setShowModal(false);
-      //console.log(data.groups);
     }
   };
 
+  //* follow group
   const follow = (i) => {
     const newTab = [...groups];
     newTab[i].follow = !newTab[i].follow;
     setGroups(newTab);
+    if (newTab[i].follow) {
+      userData.groups.push(newTab[i]);
+      newTab[i].members.push({
+        email: userData.email,
+        profile: userData.profile,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+      });
+    } else {
+      userData.groups.filter((e) => e.grpName != newTab[i].grpName);
+      newTab[i].members = newTab[i].members.filter(
+        (member) => member.email != userData.email
+      );
+    }
+    console.log(userData);
   };
 
   const handleSearch = (searchText) => {
@@ -135,7 +151,6 @@ export const Groups = () => {
                     </div>
                     {/* Modal body */}
                     <div className="mt-4">
-                      {/* Your form and content here */}
                       <form className="space-y-4">
                         <div class="relative z-0 w-full mb-5 group">
                           <input
@@ -216,15 +231,12 @@ export const Groups = () => {
             </div>
           </div>
         </div>
+        {/* groups */}
         <div className="flex flex-wrap gap-y-7 w-[70vw] justify-between">
           {groups &&
             groups.map((e, i) => (
               <>
-                <div
-                  onClick={() => {
-                    navigate(`/group/${e.grpName}`);
-                  }}
-                  className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
+                <div className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
                   <div className="rounded-t-lg h-32 overflow-hidden">
                     <img
                       className="object-cover object-top w-full"
@@ -235,7 +247,7 @@ export const Groups = () => {
                   <div className="w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
                     <img
                       className="object-cover object-center h-32"
-                      src={Images[e.profil]}
+                      src={e.profil}
                       alt="Woman looking front"
                     />
                   </div>
@@ -246,17 +258,31 @@ export const Groups = () => {
                         {e.Fname} {e.Lname}
                       </h1>
                     </div>
-                    <button
-                      onClick={() => {
-                        follow(i);
-                      }}
-                      className={` bg-blue-600 w-[130px] px-4 py-2.5 rounded-full ${
-                        e.follow
-                          ? "text-blue-600 bg-white border-blue-600 border"
-                          : "text-white"
-                      }`}>
-                      {!e.follow ? "Follow" : "unFollow"}
-                    </button>
+
+                    <div className="flex flex-col gap-2">
+                      <button
+                        onClick={() => {
+                          navigate(`/group/${e.grpName}`, {
+                            state: { isadmin: e.admin == userData.email },
+                          });
+                        }}
+                        className="bg-blue-600 text-white w-[130px] px-4 py-2.5 rounded-full">
+                        Enter
+                      </button>
+                      {e.admin != userData.email && (
+                      <button
+                        onClick={() => {
+                          follow(i);
+                        }}
+                        className={` bg-blue-600 w-[130px] px-4 py-2.5 rounded-full ${
+                          e.follow
+                            ? "text-blue-600 bg-white border-blue-600 border"
+                            : "text-white"
+                        }`}>
+                        {!e.follow ? "Follow" : "unFollow"}
+                      </button>
+                    )}
+                    </div>
                   </div>
                 </div>
               </>

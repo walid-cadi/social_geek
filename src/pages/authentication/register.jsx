@@ -79,7 +79,7 @@ const Register = () => {
         state: { notificationMessage: "Registration Successful!" },
       });
       
-      console.log(newProfile);
+      //console.log(newProfile);
     }
   };
 

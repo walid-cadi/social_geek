@@ -1,17 +1,23 @@
 import React from "react";
 import { MyAppContext } from "../../context";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Images } from "../../constant";
 import { PostGroup } from "../components/PostGroup";
 
 export const GroupPage = () => {
   const { groups, setGroups } = MyAppContext();
+  const { userData, setUserData } = MyAppContext();
+  const location = useLocation();
+
+  const {isadmin} = location.state || {}
+
   //console.log(groups);
   const { grpName } = useParams();
 
   const findgroup = groups.find((e) => e.grpName == grpName);
   const group = Array(findgroup);
-  console.log(group);
+  console.log(group[0]);
+
 
   return (
     <>
@@ -30,7 +36,7 @@ export const GroupPage = () => {
                 <div className="w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
                   <img
                     className="object-cover object-center h-32"
-                    src={Images[e.profil]}
+                    src={e.profil}
                     alt="Woman looking front"
                   />
                 </div>
@@ -43,13 +49,14 @@ export const GroupPage = () => {
                   </div>
                 </div>
               </div>
+              <div className="flex w-[100%] justify-center gap-x-5 px-5">
+                <div className="w-[70%]">
+                  {" "}
+                  <PostGroup isadmin={isadmin} findgroup={findgroup} />
+                </div>
+              </div>
             </>
           ))}
-        <div className="flex w-[100%] justify-center gap-x-5 px-5">
-          <div className="w-[70%]">
-            <PostGroup />
-          </div>
-        </div>
       </div>
     </>
   );

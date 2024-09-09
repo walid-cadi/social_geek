@@ -13,11 +13,11 @@ const Verification = () => {
   const newProfile = dataProfile
 if (newProfile) {
   setDataProfile(newProfile)
-  console.log(newProfile);
-  console.log(dataProfile?.length -1);
+  //console.log(newProfile);
+  //console.log(dataProfile?.length -1);
 }
-console.log(dataProfile);
-console.log(newProfile);
+//console.log(dataProfile);
+//console.log(newProfile);
 
 
  
