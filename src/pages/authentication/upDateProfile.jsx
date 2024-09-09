@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MyAppContext } from "../../context";
+import { Images } from "../../constant";
+
 
 const UpDateProfile = () => {
   const { dataProfile, setDataProfile, userData } = MyAppContext();
@@ -65,14 +67,14 @@ setDataProfile(newTab)
                 <div
                   className="w-full rounded-sm bg-cover bg-center bg-no-repeat items-center"
                   style={{
-                    backgroundImage: `url(${coverImage || "defaultCoverImageURL"})`,
+                    backgroundImage: `url(${coverImage || Images.defaultImg})`,
                   }}
                 >
                   {/* Profile Image */}
                   <div
                     className="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full bg-cover bg-center bg-no-repeat"
                     style={{
-                      backgroundImage: `url(${profileImage || "defaultProfileImageURL"})`,
+                      backgroundImage: `url(${profileImage || Images.defaultImg})`,
                     }}
                   >
                     <div className="bg-white/90 rounded-full w-6 h-6 text-center ml-28 mt-4">
