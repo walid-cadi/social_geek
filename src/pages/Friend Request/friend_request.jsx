@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { MyAppContext } from "../../context";
 
 const Friend_request = () => {
     const [data, setData] = useState([]);
     const [search, setSearch] = useState('');
     const [friend, setFriend] = useState({});
+    const { userData, setUserData } = MyAppContext();
+
     useEffect(() => {
         const getWeatherData = async () => {
             const response = await fetch('https://randomuser.me/api/?results=16');
@@ -19,15 +22,23 @@ const Friend_request = () => {
     );
 
     const addFriend = (id) => {
-        setFriend(change => ({ ...change, [id]: !change[id] }));
-        // users.followers.push(id)
-        // console.log(users);
-        
-        
-        
 
-    };
+    setFriend(change => ({ ...change, [id]: !change[id] }));
+    if (friend[id]) {
+        setUserData(user => ({
+            ...user,followers: user.followers.filter(follower => follower !== id)
+        }));
+    } else {
+        setUserData(user => ({
+            ...user,followers: [...user.followers, id]
+        }));
+    }
+    console.log(userData);
+    
+};
+  
 
+    
     return (
         <div className='bg-[#f3f4f6] ms-5 mt-3  w-[75vw] pb-10'>
             <div className='pt-10 flex justify-center items-center ps-8'>

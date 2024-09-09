@@ -7,7 +7,9 @@ export const MyProvider = ({ children }) => {
   const [generatedCode, setGeneratedCode] = useState("");
   const [notificationMessage, setNotificationMessage] = useState("");
   const [notificationType, setNotificationType] = useState("");
+  
   const [userData, setUserData] = useState(null);
+  
   const showNotification = (message, type = "success") => {
     setNotificationMessage(message);
     setNotificationType(type);
@@ -53,13 +55,17 @@ export const MyProvider = ({ children }) => {
     setUserData(message);
   };
 
+  const [groups, setGroups] = useState([]);
+
   const all = {
     setDataProfile,
     dataProfile,
     generateCode,
     userData,
     setUserData,
-    test
+    test,
+    groups,
+    setGroups,
   };
 
   return <Mycontext.Provider value={all}>{children}</Mycontext.Provider>;

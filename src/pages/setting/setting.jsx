@@ -1,10 +1,54 @@
-import React from 'react';
+import React,{ useRef, useState} from 'react';
 import { FiSettings } from 'react-icons/fi';
-
+import { MyAppContext } from "../../context";
 
 const Setting = () => {
+  const  {userData,setUserData} = MyAppContext() 
+  const [avatar, setAvatar] = useState(""); 
   
+  const fileInputRef = useRef(null);
+  
+  const saveAll = (event) => {
+    event.preventDefault(); 
+    const formData = new FormData(event.target); 
+    const firstname = formData.get("firstname");
+    const lastname = formData.get("lastname");
+    const bio = formData.get("bio");
 
+    setUserData((user) => ({
+      ...user, 
+      firstName: firstname, 
+      lastName: lastname,
+      bio:bio
+    }));
+
+    console.log("Updated user:", {
+      firstName: firstname,
+      lastName: lastname,
+      bio:bio
+    });
+  };
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatar(reader.result); 
+        setUserData((user) => ({
+          ...user, 
+          profile: reader.result, 
+          
+        }));
+        console.log("dddddddd",userData.profile);
+        console.log("ccccccccccc",avatar);
+      };
+      reader.readAsDataURL(file); 
+    }
+  };
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click(); 
+  };
 
   return (
     <>
@@ -23,25 +67,30 @@ const Setting = () => {
             <div className="mt-1 flex items-center">
               <span className="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
               
-                 <svg
+              {avatar ? (
+                  <img src={avatar} alt="Avatar" className="h-full w-full object-cover" />
+                ) : (
+                  <svg
                     className="h-full w-full text-gray-300"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
+                )}
+
               </span>
               <div className="flex flex-col align-center gap-1">
                 <input
-                  
+                  onChange={handleImageChange}
                   type="file"
                   accept="image/*"
-                 
+                  ref={fileInputRef}
                   className="hidden" 
                 />
                 <button
                   type="button"
-                 
+                  onClick={handleButtonClick}
                   className="ml-5 bg-white py-2 px-3 border border-gray-300 w-[30%] rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Change
@@ -52,7 +101,7 @@ const Setting = () => {
               </div>
             </div>
           </div>
-          <form className="flex pt-10 gap-x-16 flex-col" >
+          <form className="flex pt-10 gap-x-16 flex-col" onSubmit={saveAll}>
             <div className="flex gap-x-14">
               <label className="block pt-3" htmlFor="firstname">
                 <p className="text-xs font-medium">First name</p>

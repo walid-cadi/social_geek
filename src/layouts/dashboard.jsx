@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const SideBar = (props) => {
     return (
         <>
-            <nav className="w-[20%] h-[85vh] bg-white rounded-2xl shadow-lg p-4 mt-2 ms-5">
+            <nav className="w-[20%] h-[85vh] bg-white rounded-2xl shadow-lg p-4 mt-2 ms-5 ">
                 <div className="mb-4">
                     <div className="text-gray-500 font-semibold text-xs mb-2">New Feeds</div>
                     <ul>
@@ -105,6 +105,7 @@ export const SideBar = (props) => {
                         </li>
                     </ul>
                 </div>
+            
             </nav>
         </>
     );

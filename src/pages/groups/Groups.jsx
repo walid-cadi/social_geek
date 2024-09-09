@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Images, JsonData } from "../../constant";
 import { MyAppContext } from "../../context";
+import { useNavigate } from "react-router-dom";
 
 export const Groups = () => {
   const [groupName, setGroupName] = useState("");
   const [groupCover, setGroupCover] = useState();
-  const [groups, setGroups] = useState([]);
+  //const [groups, setGroups] = useState([]);
+  const { groups, setGroups } = MyAppContext();
+  const { userData, setUserData } = MyAppContext();
   const [searchGroup, setSearchGroup] = useState(groups);
+  const [showModal, setShowModal] = useState(false);
+
+  const navigate = useNavigate();
 
   const data = JsonData.users[0];
   //console.log(data);
@@ -22,17 +28,22 @@ export const Groups = () => {
       let newGroup = {
         grpName: groupName,
         grpCover: groupCover,
-        profil: data.Image,
-        Fname: data.firstName,
-        Lname: data.lastName,
+        profil: userData.profile,
+        Fname: userData.firstName,
+        Lname: userData.lastName,
         follow: false,
+        posts: [],
+        members: [],
+        admin: [userData],
       };
       newTab.push(newGroup);
       setGroups(newTab);
-      data.groups.push(newTab);
+      userData.groups.push(groups);
+      console.log(userData);
       setGroupName("");
       setGroupCover(null);
-      console.log(data.groups);
+      setShowModal(false);
+      //console.log(data.groups);
     }
   };
 
@@ -45,7 +56,7 @@ export const Groups = () => {
   const handleSearch = (searchText) => {
     const newTab = [...groups];
     let result = newTab.filter((ele) =>
-      ele.name.toLowerCase().includes(searchText)
+      ele.name.toLowerCase().includes(searchText.toLowerCase())
     );
     if (searchText) {
       setSearchGroup(result);
@@ -56,7 +67,7 @@ export const Groups = () => {
 
   return (
     <>
-      <div className="w-full  bg-[#f4f5f7] min-h-screen pt-10 flex flex-col items-center  gap-5 ">
+      <div className="w-[95%] bg-[#f4f5f7] min-h-screen pt-10 flex flex-col items-center  gap-5 ">
         <div className="bg-[white] rounded p-9 w-[70vw] flex items-center justify-between">
           <h1 className="text-2xl font-bold">Groups</h1>
           <div className="flex items-center gap-2">
@@ -88,34 +99,26 @@ export const Groups = () => {
             <div>
               {/* Modal toggle */}
               <button
-                data-modal-target="static-modal"
-                data-modal-toggle="static-modal"
+                onClick={() => setShowModal(true)}
                 className="bg-blue-600 text-white px-4 py-2.5 rounded-xl"
                 type="button">
                 Create Group
               </button>
-              {/* Main modal */}
-              <div
-                id="static-modal"
-                data-modal-backdrop="static"
-                tabIndex={-1}
-                aria-hidden="true"
-                className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div className="relative p-4 w-full max-w-2xl max-h-full">
-                  {/* Modal content */}
-                  <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+
+              {/* Simple Modal */}
+              {showModal && (
+                <div className="fixed inset-0 flex items-center justify-center z-50 overflow-y-auto bg-gray-500 bg-opacity-75">
+                  <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
                     {/* Modal header */}
-                    <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <div className="flex items-center justify-between pb-4 border-b">
+                      <h3 className="text-xl font-semibold text-gray-900">
                         Create Your Group
                       </h3>
                       <button
-                        type="button"
-                        className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-hide="static-modal">
+                        onClick={() => setShowModal(false)}
+                        className="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg w-8 h-8 flex items-center justify-center">
                         <svg
                           className="w-3 h-3"
-                          aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 14 14">
@@ -131,8 +134,9 @@ export const Groups = () => {
                       </button>
                     </div>
                     {/* Modal body */}
-                    <div className="p-4 md:p-5 space-y-4">
-                      <form class="max-w-md mx-auto">
+                    <div className="mt-4">
+                      {/* Your form and content here */}
+                      <form className="space-y-4">
                         <div class="relative z-0 w-full mb-5 group">
                           <input
                             onChange={(e) => {
@@ -192,24 +196,23 @@ export const Groups = () => {
                       </form>
                     </div>
                     {/* Modal footer */}
-                    <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <div className="flex justify-end pt-4 border-t">
                       <button
-                        onClick={addGroup}
-                        data-modal-hide="static-modal"
-                        type="button"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        onClick={() => {
+                          addGroup();
+                        }}
+                        className="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                         Create
                       </button>
                       <button
-                        data-modal-hide="static-modal"
-                        type="button"
-                        className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                        Back
+                        onClick={() => setShowModal(false)}
+                        className="px-4 py-2 ml-3 text-gray-900 bg-white border rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
+                        Cancel
                       </button>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -217,7 +220,11 @@ export const Groups = () => {
           {groups &&
             groups.map((e, i) => (
               <>
-                <div className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
+                <div
+                  onClick={() => {
+                    navigate(`/group/${e.grpName}`);
+                  }}
+                  className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
                   <div className="rounded-t-lg h-32 overflow-hidden">
                     <img
                       className="object-cover object-top w-full"
