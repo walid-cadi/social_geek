@@ -1,20 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { Images } from "../../constant";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
+import styles from "./landing.module.css"
 const LandingPage = () => {
+    const location = useLocation();
+    const { hash, pathname, search } = location;
+    console.log("hash",hash);
+   
+    console.log("pathname",pathname);
+   
+    console.log("search",search);
+   
+    
+    
     const [darkMode, setDarkMode] = useState(() =>
         localStorage.getItem('theme') === 'dark' || false
     );
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark-mode');
-        } else {
-            document.documentElement.classList.remove('dark-mode');
+        if(pathname=="/"){
+            if (darkMode) {
+                document.documentElement.classList.add('dark-mode');
+                document.body.classList.add('bg-[#091122]');
+            } else {
+                document.documentElement.classList.remove('dark-mode');
+                console.log("ddddddddddd",document.documentElement.classList)
+                document.body.classList.remove('bg-[#091122]');
+            }
+            localStorage.setItem('theme', darkMode ? 'dark' : 'light');
         }
-        localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+        
+       
     }, [darkMode]);
 
     const toggleDarkMode = () => {
@@ -22,15 +40,15 @@ const LandingPage = () => {
     };
 
     return (
-        <>
-            <div>
+        <React.Fragment >
+            <div className='dark-mode'>
                 <nav className="fixed w-full z-20 top-0 start-0 mt-5 ">
-                    <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
+                    <div className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4  `}>
                         <div>
                             <div className="flex items-center ps-5 pe-20">
                                 <a href="/" className="flex items-center text-blue-600">
                                     <img src={Images.logo} className="w-[25px] pt-1" alt="" />
-                                    <span className="ml-2 font-bold text-2xl">SocialGeek.</span>
+                                    <span className="ml-2 font-bold text-2xl">SocialGeeks.</span>
                                 </a>
                             </div>
                         </div>
@@ -79,10 +97,13 @@ const LandingPage = () => {
             <div className='flex justify-around mt-[23vh] items-center w-full ps-12'>
                 <div className='w-[48%] flex flex-col gap-4'>
                     <div>
-                        <h1 className='title-h1 text-6xl font-bold text-[#162e55]'>Welcome to <span className='text-[#fac651] spaning'>SocialGeek</span> Your Hub for Social Media Mastery!</h1>
+                    <h1 className={`${darkMode ? styles.titleh1Dark : styles.titleh1} text-6xl font-bold`}>
+                         Welcome to <span className={`${darkMode ? styles.spaningDark : styles.spaning}`}>SocialGeek</span> Your Hub for Social Media Mastery!
+                    </h1>
+
                     </div>
                     <div>
-                        <p className='text-gray-400 pg'>
+                        <p className={`text-gray-400  ${darkMode ? styles['pg'] :""}`}>
                             Welcome to SocialGeek, where social media innovation meets effortless management! Whether
                             you're a seasoned marketer or just starting to explore the dynamic world of social media,
                             SocialGeek is designed to elevate your online presence and streamline your strategy.
@@ -90,14 +111,14 @@ const LandingPage = () => {
                         </p>
                     </div>
                     <div>
-                        <a href="" className='border-b-2 border-blue-600 text-gray-600 link-dark'>Learn more</a>
+                        <a href="" className={`border-b-2 border-blue-600 text-gray-600 link-dark  ${darkMode ? styles['link-dark'] : 'text-gray-600'}`}>Learn more</a>
                     </div>
                 </div>
                 <div>
                     <img src={Images.landing} className="w-[33vw] pt-1" alt="" />
                 </div>
             </div>
-        </>
+        </React.Fragment>
     );
 };
 

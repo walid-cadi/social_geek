@@ -2,27 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-placeholder::placeholder {
-    color: rgb(7, 7, 227); 
-    opacity: 0.5;
-}
-.dark-mode {
-    background-color: #091122;
-    color: #f7fafc; 
-}
-.dark-mode .pg{
-    color: rgb(181, 180, 180);
-}
-.dark-mode .title-h1{
-    color: white;
-}
-.dark-mode .link-dark{
-    color: #fac651;
-    border-bottom: #fac651;
-}
-.dark-mode .spaning{
-    color: #1c64f2;
-}
 .bg-error{
     background-image: url('https://cdn.prod.website-files.com/6009ec8cda7f305645c9d91b/6217a5a3d58471ba1344c804_21-modern-small-business-website-examples.jpg');
     background-size:cover;

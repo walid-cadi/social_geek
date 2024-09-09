@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
 import Profilee from "./pages/profilee";
 import Settings from "./pages/settings";
@@ -14,12 +14,24 @@ import LandingPage from "./pages/Landing-Page/landingPage";
 import UpDateProfile from "./pages/authentication/upDateProfile";
 import GroupsPage from "./pages/grouppage";
 import Group from "./pages/group";
+import { ErrorPage } from "./pages/Error/error";
+import { useEffect } from "react";
 
 function App() {
+  const location = useLocation();
+  const { hash, pathname, search } = location;
+  useEffect(() => {
+   if (pathname != "/") {
+      document.documentElement.classList.remove("dark-mode");
+      document.body.classList.remove("bg-[#091122]");
+      localStorage.setItem("theme", "light");
+    }
+  }, [pathname]);
   return (
     <>
       <MyProvider>
         <Routes>
+          <Route path="/*" element={<ErrorPage />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

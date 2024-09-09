@@ -79,38 +79,30 @@ export const SideBar = (props) => {
           </ul>
         </div>
 
-        <div className="mb-4">
-          <div className="text-gray-500 font-semibold text-xs mb-2">
-            More Pages
-          </div>
+        <div className="mb-4 shadow-md p-5 rounded-lg transition-all hover:shadow-md">
+          <div className="text-gray-500 font-semibold text-xs mb-2">More Pages</div>
           <ul>
             <li className="flex items-center mb-3">
-              <Link to="/email-box" className="flex items-center text-gray-700">
-                <FiInbox className="text-blue-500 text-xl" />
+              <Link to="/email-box" className="flex items-center text-gray-700 hover:text-blue-500 transition-all">
+                <FiInbox className="text-blue-500 text-2xl transition-transform hover:scale-110" />
                 <span className="ml-3">Email Box</span>
               </Link>
             </li>
             <li className="flex items-center mb-3">
-              <Link
-                to="/friend_request"
-                className="flex items-center text-gray-700">
-                <FiUserPlus className="text-blue-500 text-xl" />
+              <Link to="/friend_request" className="flex items-center text-gray-700 hover:text-blue-500 transition-all">
+                <FiUserPlus className="text-blue-500 text-2xl transition-transform hover:scale-110" />
                 <span className="ml-3">Friends Request</span>
               </Link>
             </li>
             <li className="flex items-center mb-3">
-              <Link
-                to="/latest-event"
-                className="flex items-center text-gray-700">
-                <FiMapPin className="text-blue-500 text-xl" />
+              <Link to="/latest-event" className="flex items-center text-gray-700 hover:text-blue-500 transition-all">
+                <FiMapPin className="text-blue-500 pe-1 text-2xl transition-transform hover:scale-110" />
                 <span className="ml-3">Latest Event</span>
               </Link>
             </li>
             <li className="flex items-center mb-3">
-              <Link
-                to="/live-stream"
-                className="flex items-center text-gray-700">
-                <FiYoutube className="text-blue-500 text-xl" />
+              <Link to="/live-stream" className="flex items-center text-gray-700 hover:text-blue-500 transition-all">
+                <FiYoutube className="text-blue-500 text-2xl transition-transform hover:scale-110" />
                 <span className="ml-3">Live Stream</span>
               </Link>
             </li>
