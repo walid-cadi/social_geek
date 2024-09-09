@@ -14,7 +14,8 @@ const Register = () => {
   const [confirmPasswordInputValue, setConfirmPasswordInputValue] =
     useState("");
   const [validationMessage, setValidationMessage] = useState("");
-  // const [generatedCode, setGeneratedCode] = useState("");
+  const [gendreValue, setGendreValue] = useState("");
+ 
 
   const navigate = useNavigate();
   // let code = generateCode
@@ -29,8 +30,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const code = generateCode ();
-
+    const code = generateCode();
 
     const newProfile = {
       firstName: firstInputValue,
@@ -39,6 +39,7 @@ const Register = () => {
       birth: birthInputValue,
       password: passwordInputValue,
       confirmPassword: confirmPasswordInputValue,
+      gendre: gendreValue,
       post: [],
       generateCode: code,
       followers: [],
@@ -46,7 +47,10 @@ const Register = () => {
       groups: [],
       FirstTime : false,
       profile: ``,
-      bio:"" 
+      bio:"" ,
+      profile:" ",
+      biography: "",
+      cover : ""
     };
 
     if (
@@ -73,7 +77,6 @@ const Register = () => {
       return;
     } else {
       setDataProfile([...dataProfile, newProfile]);
-     
 
       navigate("/verification", {
         state: { notificationMessage: "Registration Successful!" },
@@ -137,6 +140,7 @@ const Register = () => {
                       className="w-full p-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                     />
                   </label>
+
                   <label className="flex flex-col w-full mb-4">
                     <input
                       value={passwordInputValue}
@@ -147,9 +151,24 @@ const Register = () => {
                     />
                   </label>
                   <label className="flex flex-col w-full mb-4">
+                    <select className="w-full p-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                    value={gendreValue}
+                    onChange={(e) => setGendreValue(e.target.value)}
+                    >
+                    
+                        <option selected disabled value="">
+                        Select Sex
+                      </option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                  </label>
+                  <label className="flex flex-col w-full mb-4">
                     <input
                       value={confirmPasswordInputValue}
-                      onChange={(e) => setConfirmPasswordInputValue(e.target.value)}
+                      onChange={(e) =>
+                        setConfirmPasswordInputValue(e.target.value)
+                      }
                       type="password"
                       className="w-full p-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                       placeholder="Confirm Password"
@@ -175,7 +194,10 @@ const Register = () => {
                   </button>
                   <p className="mt-6 text-xs text-gray-600 text-center">
                     Already have an account?{" "}
-                    <Link to="/login" className="border-b border-gray-500 border-dotted">
+                    <Link
+                      to="/login"
+                      className="border-b border-gray-500 border-dotted"
+                    >
                       Sign in
                     </Link>
                   </p>
@@ -195,7 +217,6 @@ const Register = () => {
         </div>
       </div>
     </div>
-  
   );
 };
 
