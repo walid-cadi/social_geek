@@ -11,6 +11,8 @@ import Homepage from "./pages/homepage";
 import Grouppage from "./pages/grouppage";
 import Friends from "./pages/friends";
 import Stories from "./pages/stories";
+import LandingPage from "./pages/Landing-Page/landingPage";
+import UpDateProfile from "./pages/authentication/upDateProfile";
 function App() {
   return (
     <>
@@ -19,9 +21,11 @@ function App() {
   
         <Routes>
          
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>} />
           <Route path="/verification" element={<Verification />}/>
+          <Route path="/update" element={<UpDateProfile />}/>
           <Route path="/profile" element={<Profilee />} />
           <Route path="/setting" element={<Settings />} />
           <Route path="/home" element={<Homepage/>}/>
