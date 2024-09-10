@@ -334,19 +334,20 @@ export const Post = () => {
 
               <div>
                 {post.comments.length > 0 && (
-                  <ul className="flex flex-col justify-center items-center">
-                    {post.comments.map((comment, i) => (
-                      <li
-                        key={i}
-                        className="text-gray-700 text-sm mb-2 bg-gray-100 py-2 rounded-lg ps-4 w-[30vw] flex items-center gap-3">
-                        <img src={userData.profile} className="w-10" alt="" />
-                        <div>
-                          <p className="font-semibold">{post.user.name}</p>
-                          {comment}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                  <ul className="flex flex-col justify-center items-center w-full">
+                  {post.comments.map((comment, i) => (
+                    <li
+                      key={i}
+                      className="text-gray-700 text-xs sm:text-sm mb-2 bg-gray-100 py-2 rounded-lg px-4 w-[90vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] flex items-center gap-3">
+                      <img src={userData.profile} className="w-8 sm:w-10" alt="" />
+                      <div>
+                        <p className="font-semibold text-xs sm:text-sm">{post.user.name}</p>
+                        <p className="text-xs sm:text-sm">{comment}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                
                 )}
               </div>
             </section>

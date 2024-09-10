@@ -132,7 +132,7 @@ export const PostGroup = ({ isadmin, findgroup }) => {
   return (
     <>
       {isadmin && (
-        <div className="bg-white rounded-lg h-auto w-[50vw] mt-2 shadow-md p-6">
+        <div className="bg-white rounded-lg h-auto w-[90vw] sm:w-[70vw] lg:w-[53vw] mt-2 shadow-md p-4 sm:p-6 ">
           <div className="mb-4">
             <div className="flex items-center mb-3 gap-2">
               <button className="text-center bg-gray-200 p-3 rounded-full">
@@ -266,19 +266,20 @@ export const PostGroup = ({ isadmin, findgroup }) => {
 
               <div>
                 {post.comments.length > 0 && (
-                  <ul className="flex flex-col justify-center items-center">
-                    {post.comments.map((comment, i) => (
-                      <li
-                        key={i}
-                        className="text-gray-700 text-sm mb-2 bg-gray-100 py-2 rounded-lg ps-4 w-[30vw] flex items-center gap-3">
-                        <img src={userData.profile} className="w-10" alt="" />
-                        <div>
-                          <p className="font-semibold">{post.user.name}</p>
-                          {comment}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                 <ul className="flex flex-col justify-center items-center w-full">
+                 {post.comments.map((comment, i) => (
+                   <li
+                     key={i}
+                     className="text-gray-700 text-xs sm:text-sm mb-2 bg-gray-100 py-2 rounded-lg px-4 w-[55vw] md:w-[35vw]  flex items-center gap-3">
+                     <img src={userData.profile} className="w-10 sm:w-12" alt="" />
+                     <div>
+                       <p className="font-semibold text-xs sm:text-sm">{post.user.name}</p>
+                       <p className="text-xs sm:text-sm">{comment}</p>
+                     </div>
+                   </li>
+                 ))}
+               </ul>
+               
                 )}
               </div>
             </section>
