@@ -72,7 +72,7 @@ export const Navbar = () => {
           <FiUser className="text-gray-500 text-2xl" />
         </Link>
         <Link
-          to="/marketplace"
+          to="/market"
           className="text-center bg-gray-200 p-3 rounded-full"
         >
           <FiShoppingBag className="text-gray-500 text-2xl" />
