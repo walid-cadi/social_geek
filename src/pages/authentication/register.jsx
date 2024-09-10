@@ -87,17 +87,17 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-gray-100 text-gray-900 flex justify-center w-full min-h-screen p-4 sm:p-0">
-    <div className="m-0 sm:m-10 bg-white shadow sm:rounded-lg flex flex-col lg:flex-row justify-center items-center w-full sm:w-2/3 lg:w-1/2">
-      <div className="w-full flex flex-col justify-center items-center px-4 sm:px-8 lg:px-12">
+    <div className="bg-gray-100 text-gray-900 flex justify-center w-full min-h-screen">
+    <div className="m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+      <div className="w-full sm:w-2/3 lg:w-1/2 flex flex-col justify-center items-center px-4 sm:px-8 lg:px-12">
         <div>
           <img src={Images.logo} className="w-16" alt="Logo" />
         </div>
-        <div className="flex flex-col items-center mt-4 sm:mt-6">
-          <h1 className="text-xl sm:text-2xl font-extrabold mb-4 text-center">
+        <div className="flex flex-col items-center">
+          <h1 className="text-xl sm:text-2xl font-extrabold mb-4">
             Register for Social Geek
           </h1>
-          <div className="w-full">
+          <div className="w-full flex-1">
             <div className="max-w-xs mx-auto sm:max-w-sm">
               {validationMessage && (
                 <p className="text-red-500 mb-4">{validationMessage}</p>
@@ -214,6 +214,7 @@ const Register = () => {
       </div>
     </div>
   </div>
+  
   
   
 
