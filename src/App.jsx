@@ -16,6 +16,9 @@ import GroupsPage from "./pages/grouppage";
 import Group from "./pages/group";
 import { ErrorPage } from "./pages/Error/error";
 import { useEffect } from "react";
+import Markett from "./pages/markett";
+import MarketInfo from "./pages/market/marketInfo";
+import MarketInfoo from "./pages/marketinfo";
 
 function App() {
   const location = useLocation();
@@ -45,6 +48,8 @@ function App() {
           <Route path="/friend_request" element={<Friends />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/stories" element={<Stories />} />
+          <Route path="/market" element={<Markett />} />
+          <Route path="/marketinfo/:id" element={<MarketInfoo />} />
         </Routes>
       </MyProvider>
     </>
