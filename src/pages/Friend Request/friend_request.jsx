@@ -61,17 +61,17 @@ const Friend_request = () => {
 
         return (
             <div className='bg-[#f3f4f6] ms-5 mt-3  w-[75vw] pb-10'>
-                <div className='pt-10 flex justify-center items-center ps-8 ' >
-                    <div className='bg-white flex justify-between shadow-xl w-[63vw] h-24 items-center p-10 rounded-lg'>
+                <div className='pt-10 flex justify-center items-center ps-14 bg-nav' >
+                    <div className='bg-white flex justify-between shadow-xl w-[63vw] h-24 items-center p-10 rounded-lg '>
                         <div>
                             <h1 className='font-bold text-2xl text-blue-600'>Friends</h1>
                         </div>
                         <div className='flex gap-4'>
-                            <div className="flex items-center relative">
+                            <div className="flex items-center relative ">
                                 <svg className="w-4 h-4 text-blue-900 dark:text-white absolute left-[13vw] focus:outline-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
                                 </svg>
-                                <input type="text" className='w-[15vw] border-0 border-blue-800 bg-blue-50 text-gray-700 p-3 rounded-lg custom-placeholder nav-search' placeholder='Search here' value={search} onChange={(e) => setSearch(e.target.value)} />
+                                <input type="text" className='w-[15vw] border-0 border-blue-800 bg-blue-50 text-gray-700 p-3 rounded-lg custom-placeholder inpt' placeholder='Search here' value={search} onChange={(e) => setSearch(e.target.value)} />
                             </div>
                             <div className='bg-blue-50 text-center rounded-lg btn'>
                                 <svg className="w-14 h-12 text-blue-800 dark:text-white p-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">

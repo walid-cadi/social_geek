@@ -1,23 +1,20 @@
 @media (max-width: 428px) {
     .friend {
         flex-direction: column;
-        width: 100%;
+        width: 350vw;
         justify-content: start;
         align-items: start;
-        padding-right: 10vw;
+        background-color: white;
     }
     .request {
-        width: 70vw !important;
+        width: 65vw !important;
+
     }
-    .nav-search {
-        width: 50vw !important;
-        height: 5vh !important;
+    .inpt {
+        padding-right: 10vw;
     }
-    .btn4 {
-        height: 6vh !important;
-        width: 12vw !important;
-    }
-    .div-request{
-        width: 100vw !important; 
+    .bg-nav {
+        background-color: white;
+        width: 20vw;
     }
 }
