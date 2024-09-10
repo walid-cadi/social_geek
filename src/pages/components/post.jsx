@@ -249,7 +249,7 @@ export const Post = () => {
                 {userData.post.map((post, index) => (
                     <div key={index} className="  mb-4 bg-white rounded-lg h-auto w-[100vw] md:w-[50vw] mt-2 shadow-md p-4 md:p-4 ">
                         <div className="flex items-center mb-2">
-                            <img src={Images.notuser3} alt="User" className="w-12 h-12 rounded-full mr-2" />
+                            <img src={userData.profile} alt="User" className="w-12 h-12 rounded-full mr-2" />
                             <div>
                                 <p className="font-semibold">{post.user.name}</p>
                                 <p className="text-gray-500 text-sm">{post.date}</p>

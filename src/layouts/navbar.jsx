@@ -84,7 +84,6 @@ export const Navbar = () => {
         <a
           href="#"
           className="relative text-center"
-          onClick={toggleNotifications}
         >
           <span className="absolute top-0 right-0 bg-yellow-400 h-2 w-2 rounded-full"></span>
           <FiBell className="text-2xl text-blue-600" />

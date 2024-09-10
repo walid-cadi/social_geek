@@ -16,6 +16,7 @@ import GroupsPage from "./pages/grouppage";
 import Group from "./pages/group";
 import { ErrorPage } from "./pages/Error/error";
 import { useEffect } from "react";
+import Market from "./pages/market/market";
 
 function App() {
   const location = useLocation();
