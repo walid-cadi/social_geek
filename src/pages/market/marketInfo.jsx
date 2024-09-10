@@ -26,7 +26,7 @@ const MarketInfo = () => {
     }, [id]);
 
     return (
-        <div className="p-[-] bg-[#eff4fb] min-h-screen  flex flex-col">
+        <div className="p-[-] bg-[#eff4fb] min-h-screen w-[80vw] mt-5 mx-auto md:me-3 rounded-xl flex flex-col">
             {product ? (
                 <div className='flex flex-col lg:flex-row gap-6 lg:gap-12 p-6 lg:p-12 rounded-lg'>
                     <div className='w-full lg:w-1/2'>

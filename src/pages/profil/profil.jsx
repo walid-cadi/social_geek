@@ -11,8 +11,8 @@ const Profil = () => {
 
   return (
     <>
-      <div className="p-10">
-        <div className="w-[95%] bg-white shadow-xl rounded-lg text-gray-900 pb-5">
+      <div className="p-3 md:p-10  w-[80vw]">
+        <div className="w-[95%] md:ms-1 ms-10 bg-white shadow-xl rounded-lg text-gray-900 pb-5 ">
           <div className="rounded-t-lg h-32 overflow-hidden">
             <img
               className="object-cover object-top w-full"
@@ -52,9 +52,11 @@ const Profil = () => {
             </li>
           </ul>
         </div>
+
+        
         <div className="flex w-[100%]">
-          <div className="w-[32%] h-[50vh] border shadow-lg rounded-xl mx-2 bg-white mt-3">
-            <div className="p-4">
+          <div className="w-[32%] h-[50vh] border shadow-lg rounded-xl mx-2 bg-white mt-3 hidden md:block">
+            <div className="p-4 ">
               <h4 className="font-bold mb-3 text-sm text-gray-900">Bio</h4>
               <p className="font-medium text-gray-500 leading-6 text-xs mb-0">
                 {userData.bio ||

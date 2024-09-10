@@ -1,31 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Images, JsonData } from "../../constant";
+import React, { useContext, useState } from "react";
 import { MyAppContext } from "../../context";
 import { useNavigate } from "react-router-dom";
 
 export const Groups = () => {
   const [groupName, setGroupName] = useState("");
   const [groupCover, setGroupCover] = useState();
-  //const [groups, setGroups] = useState([]);
   const { groups, setGroups } = MyAppContext();
-  const { userData, setUserData } = MyAppContext();
+  const { userData } = MyAppContext();
   const [showModal, setShowModal] = useState(false);
 
   const navigate = useNavigate();
 
-  //const data = JsonData.users[0];
-  //console.log(data);
-
-  //* select image
   const handleImageChange = (e) => {
     setGroupCover(URL.createObjectURL(e.target.files[0]));
   };
 
-  //* create group
   const addGroup = () => {
     if (groupName) {
       const newTab = [...groups];
-      let newGroup = {
+      const newGroup = {
         grpName: groupName,
         grpCover: groupCover,
         profil: userData.profile,
@@ -39,14 +32,12 @@ export const Groups = () => {
       newTab.push(newGroup);
       setGroups(newTab);
       userData.groups.push(newGroup);
-      console.log(userData);
       setGroupName("");
       setGroupCover(null);
       setShowModal(false);
     }
   };
 
-  //* follow group
   const follow = (i) => {
     const newTab = [...groups];
     newTab[i].follow = !newTab[i].follow;
@@ -59,37 +50,33 @@ export const Groups = () => {
         firstName: userData.firstName,
         lastName: userData.lastName,
       });
-      console.log(userData)
     } else {
-      userData.groups.filter((e) => e.grpName != newTab[i].grpName);
+      userData.groups = userData.groups.filter(
+        (e) => e.grpName !== newTab[i].grpName
+      );
       newTab[i].members = newTab[i].members.filter(
-        (member) => member.email != userData.email
+        (member) => member.email !== userData.email
       );
     }
-    console.log(userData);
-    console.log(newTab[i]);
   };
 
   return (
     <>
-      <div className="w-[95%] bg-[#f4f5f7] min-h-screen pt-10 flex flex-col items-center  gap-5 ">
-        <div className="bg-[white] rounded p-9 w-[70vw] flex items-center justify-between">
-          <h1 className="text-2xl font-bold">Groups</h1>
+      <div className="w-[90vw] lg:w-[80vw] mt-5 min-h-screen pt-10 flex flex-col items-center gap-5">
+        <div className="bg-gray-100 rounded p-5 lg:p-9 w-full lg:w-[70vw] flex items-center justify-between ms-7">
+          <h1 className="text-xl lg:text-2xl font-bold">Groups</h1>
           <div className="flex items-center gap-2">
             <div>
-              {/* Modal toggle */}
               <button
                 onClick={() => setShowModal(true)}
-                className="bg-blue-600 text-white px-4 py-2.5 rounded-xl"
+                className="bg-blue-600 text-white px-3 py-2.5 lg:px-4 lg:py-2.5 rounded-xl"
                 type="button">
                 Create Group
               </button>
 
-              {/* Simple Modal */}
               {showModal && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 overflow-y-auto bg-gray-500 bg-opacity-75">
                   <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
-                    {/* Modal header */}
                     <div className="flex items-center justify-between pb-4 border-b">
                       <h3 className="text-xl font-semibold text-gray-900">
                         Create Your Group
@@ -113,10 +100,9 @@ export const Groups = () => {
                         <span className="sr-only">Close modal</span>
                       </button>
                     </div>
-                    {/* Modal body */}
                     <div className="mt-4">
                       <form className="space-y-4">
-                        <div class="relative z-0 w-full mb-5 group">
+                        <div className="relative z-0 w-full mb-5 group">
                           <input
                             onChange={(e) => {
                               setGroupName(e.target.value);
@@ -124,17 +110,17 @@ export const Groups = () => {
                             type="text"
                             name="group_name"
                             id="group_name"
-                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" "
                           />
                           <label
-                            for="group_name"
-                            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                            htmlFor="group_name"
+                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                             Group Name
                           </label>
                         </div>
                         <div
-                          className="w-[400px] relative border-2 border-gray-300 border-dashed rounded-lg p-6"
+                          className="w-full lg:w-[400px] relative border-2 border-gray-300 border-dashed rounded-lg p-6"
                           id="dropzone">
                           <input
                             onChange={handleImageChange}
@@ -146,12 +132,10 @@ export const Groups = () => {
                             <img
                               className="mx-auto h-12 w-12"
                               src="https://www.svgrepo.com/show/357902/image-upload.svg"
-                              alt
+                              alt="Upload"
                             />
                             <h3 className="mt-2 text-sm font-medium text-gray-900">
-                              <label
-                                htmlFor="file-upload"
-                                className="relative cursor-pointer">
+                              <label htmlFor="file-upload" className="relative cursor-pointer">
                                 <span>Choose cover</span>
                                 <input
                                   id="file-upload"
@@ -166,20 +150,19 @@ export const Groups = () => {
                               PNG, JPG, GIF up to 10MB
                             </p>
                           </div>
-                          <img
-                            src
-                            className="mt-4 mx-auto max-h-40 hidden"
-                            id="preview"
-                          />
+                          {groupCover && (
+                            <img
+                              src={groupCover}
+                              className="mt-4 mx-auto max-h-40"
+                              alt="Group Cover Preview"
+                            />
+                          )}
                         </div>
                       </form>
                     </div>
-                    {/* Modal footer */}
                     <div className="flex justify-end pt-4 border-t">
                       <button
-                        onClick={() => {
-                          addGroup();
-                        }}
+                        onClick={addGroup}
                         className="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                         Create
                       </button>
@@ -192,64 +175,62 @@ export const Groups = () => {
                   </div>
                 </div>
               )}
+
             </div>
           </div>
         </div>
-        {/* groups */}
-        <div className="flex flex-wrap gap-y-7 w-[70vw] justify-between">
+        <div className="flex flex-wrap gap-y-7 w-full lg:w-[70vw] justify-between ms-6 ">
           {groups &&
             groups.map((e, i) => (
-              <>
-                <div className="w-[49%]  bg-white shadow-xl rounded-lg text-gray-900">
-                  <div className="rounded-t-lg h-32 overflow-hidden">
-                    <img
-                      className="object-cover object-top w-full"
-                      src={e.grpCover}
-                      alt="Mountain"
-                    />
+              <div
+                key={i}
+                className="w-full lg:w-[49%] bg-white shadow-xl rounded-lg text-gray-900">
+                <div className="rounded-t-lg h-32 overflow-hidden">
+                  <img
+                    className="object-cover object-top w-full"
+                    src={e.grpCover}
+                    alt="Group Cover"
+                  />
+                </div>
+                <div className="w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden mx-auto lg:mx-0">
+                  <img
+                    className="object-cover object-center h-32"
+                    src={e.profil}
+                    alt="Profile"
+                  />
+                </div>
+                <div className="pb-4 px-2 flex justify-between">
+                  <div>
+                    <h1 className="text-lg font-bold">{e.grpName}</h1>
+                    <h1 className="text-md font-semibold text-gray-600">
+                      {e.Fname} {e.Lname}
+                    </h1>
                   </div>
-                  <div className="w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
-                    <img
-                      className="object-cover object-center h-32"
-                      src={e.profil}
-                      alt="Woman looking front"
-                    />
-                  </div>
-                  <div className="pb-4 px-2 flex justify-between ">
-                    <div>
-                      <h1 className="text-lg font-bold">{e.grpName}</h1>
-                      <h1 className="text-md font-semibold text-gray-600">
-                        {e.Fname} {e.Lname}
-                      </h1>
-                    </div>
 
-                    <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-2">
+                    <button
+                      onClick={() => {
+                        navigate(`/group/${e.grpName}`, {
+                          state: { isadmin: e.admin === userData.email },
+                        });
+                      }}
+                      className="bg-blue-600 text-white w-[130px] px-4 py-2.5 rounded-full">
+                      Enter
+                    </button>
+                    {e.admin !== userData.email && (
                       <button
-                        onClick={() => {
-                          navigate(`/group/${e.grpName}`, {
-                            state: { isadmin: e.admin == userData.email },
-                          });
-                        }}
-                        className="bg-blue-600 text-white w-[130px] px-4 py-2.5 rounded-full">
-                        Enter
+                        onClick={() => follow(i)}
+                        className={`bg-blue-600 w-[130px] px-4 py-2.5 rounded-full ${
+                          e.follow
+                            ? "text-blue-600 bg-white border-blue-600 border"
+                            : "text-white"
+                        }`}>
+                        {!e.follow ? "Follow" : "Unfollow"}
                       </button>
-                      {e.admin != userData.email && (
-                        <button
-                          onClick={() => {
-                            follow(i);
-                          }}
-                          className={` bg-blue-600 w-[130px] px-4 py-2.5 rounded-full ${
-                            e.follow
-                              ? "text-blue-600 bg-white border-blue-600 border"
-                              : "text-white"
-                          }`}>
-                          {!e.follow ? "Follow" : "unFollow"}
-                        </button>
-                      )}
-                    </div>
+                    )}
                   </div>
                 </div>
-              </>
+              </div>
             ))}
         </div>
       </div>
