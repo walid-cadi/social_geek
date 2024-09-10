@@ -183,18 +183,6 @@ export const Post = () => {
     }));
   };
 
-       
-        setUserData((user)=>{
-            return {...user, post:[...user.post, newPost]}
-        })
-        console.log("aaaaaaa",userData.post);   
-        
-        
-        
-        setPostContent("");
-        setSelectedMedia([]);
-        setPublicationDate("");
-    };
   return (
     <>
       <div className="bg-white rounded-lg h-auto w-[100vw] md:w-[50vw] mt-2 shadow-md p-4 md:p-4 postt">
@@ -326,16 +314,6 @@ export const Post = () => {
                   />
                 </div>
 
-            <div className="mt-6">
-                {userData.post.map((post, index) => (
-                    <div key={index} className="bg-white p-4 rounded-lg shadow-md mb-4">
-                       
-                        <div className="flex items-center mb-2">
-                            <img src={userData?.profile} alt="User" className="w-12 h-12 rounded-full mr-2" />
-                            <div>
-                                <p className="font-semibold">{post.user.name}</p>
-                                <p className="text-gray-500 text-sm">{post.date}</p>
-                            </div>
                 <div className="flex gap-1 justify-end space-x-1">
                   <button
                     className="text-blue-500 rounded-full"

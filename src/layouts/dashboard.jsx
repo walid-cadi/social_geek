@@ -28,7 +28,7 @@ export const SideBar = () => {
               </Link>
             </li>
             <li className="flex items-center mb-3">
-              <Link to="/marketplace" className="flex items-center text-gray-700 hover:text-orange-500 transition-all">
+              <Link to="/market" className="flex items-center text-gray-700 hover:text-orange-500 transition-all">
                 <span className="flex items-center justify-center w-[3vw] h-[6vh]  bg-gradient-to-r from-orange-500 to-red-500 rounded-full p-1 transition-transform hover:scale-110">
                   <FiShoppingBag className="text-white" />
                 </span>
