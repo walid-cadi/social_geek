@@ -49,7 +49,34 @@ const Setting = () => {
   const handleButtonClick = () => {
     fileInputRef.current.click(); 
   };
+  const changePassword = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
 
+    const currentPassword = formData.get("currentPassword");
+    const newPassword = formData.get("newPassword");
+
+    
+    if (!userData || !userData.password) {
+        console.log("User data or password is not available");
+        return;
+    }
+
+    console.log("currentPassword", currentPassword);
+    console.log("newPassword", newPassword);
+
+    if (userData.password === currentPassword) {
+        setUserData((user) => {
+            
+            const updatedUser = { ...user, password: newPassword };
+            console.log("Updated user:", updatedUser);
+            return updatedUser;
+        });
+        console.log("Password updated successfully");
+    } else {
+        console.log("Current password is incorrect");
+    }
+};
   return (
     <>
       <div className="w-[80vw] flex pl-7 pt-6 bg-white mt-5 ms-5"> 
@@ -143,7 +170,7 @@ const Setting = () => {
               </button>
             </div>
           </form>
-          <form className='pt-10' >
+          <form className='pt-10' onSubmit={changePassword} >
             <h1 className='pt-7 text-base font-medium'>Password</h1>
             <label className="block pt-5" htmlFor="firstname">
               <p className="text-xs font-medium">Current password</p>
