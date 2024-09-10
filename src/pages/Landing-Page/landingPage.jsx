@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Images } from "../../constant";
 import { useLocation, useNavigate } from 'react-router-dom';
-
 import styles from "./landing.module.css"
+import '../../style/landing-page.css'
 const LandingPage = () => {
     const location = useLocation();
     const { hash, pathname, search } = location;
@@ -42,8 +42,8 @@ const LandingPage = () => {
     return (
         <React.Fragment >
             <div className='dark-mode'>
-                <nav className="fixed w-full z-20 top-0 start-0 mt-5 ">
-                    <div className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4  `}>
+                <nav className="fixed w-full z-20 top-0 start-0 mt-5 nav-landing">
+                    <div className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 nav-landing`}>
                         <div>
                             <div className="flex items-center ps-5 pe-20">
                                 <a href="/" className="flex items-center text-blue-600">
@@ -55,21 +55,11 @@ const LandingPage = () => {
                         <div className='flex gap-3'>
                             <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                                 <button type="button" className="text-white bg-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-8 py-3 text-center"  onClick={() => navigate('/login')}>Login</button>
-                                <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
-                                    <span className="sr-only">Open main menu</span>
-                                    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-                                    </svg>
-                                </button>
+                                
                             </div>
                             <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                                 <button type="button" className="text-white bg-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-8 py-3 text-center" onClick={() => navigate('/register')}>Sign-Up</button>
-                                <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
-                                    <span className="sr-only">Open main menu</span>
-                                    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-                                    </svg>
-                                </button>
+                                
                             </div>
                             <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                                 <button type="button" className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center" onClick={toggleDarkMode}>
@@ -83,27 +73,22 @@ const LandingPage = () => {
                                         </svg>
                                     )}
                                 </button>
-                                <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
-                                    <span className="sr-only">Open main menu</span>
-                                    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-                                    </svg>
-                                </button>
+                               
                             </div>
                         </div>
                     </div>
                 </nav >
-            </div >
-            <div className='flex justify-around mt-[23vh] items-center w-full ps-12'>
-                <div className='w-[48%] flex flex-col gap-4'>
+            </div > 
+            <div className='flex justify-around mt-[23vh] items-center w-full ps-12 landing'>
+                <div className='w-[48%] flex flex-col gap-4 landing-2'>
                     <div>
-                    <h1 className={`${darkMode ? styles.titleh1Dark : styles.titleh1} text-6xl font-bold`}>
+                    <h1 className={`${darkMode ? styles.titleh1Dark : styles.titleh1} text-6xl font-bold title-landing`}>
                          Welcome to <span className={`${darkMode ? styles.spaningDark : styles.spaning}`}>SocialGeek</span> Your Hub for Social Media Mastery!
                     </h1>
 
                     </div>
                     <div>
-                        <p className={`text-gray-400  ${darkMode ? styles['pg'] :""}`}>
+                        <p className={`text-gray-400 p-landing  ${darkMode ? styles['pg'] :""} `}>
                             Welcome to SocialGeek, where social media innovation meets effortless management! Whether
                             you're a seasoned marketer or just starting to explore the dynamic world of social media,
                             SocialGeek is designed to elevate your online presence and streamline your strategy.
@@ -115,7 +100,7 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div>
-                    <img src={Images.landing} className="w-[33vw] pt-1" alt="" />
+                    <img src={Images.landing} className="w-[33vw] pt-1 img-landing" alt="" />
                 </div>
             </div>
         </React.Fragment>

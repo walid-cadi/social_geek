@@ -1,0 +1,24 @@
+@media (max-width : 428px) {
+    .landing {
+        gap: 5vh;
+        flex-direction: column-reverse;
+        justify-content: start;
+        align-items: start;
+    }
+    .nav-landing {
+        gap: 2vh;
+        padding-left: 8vw;
+    }
+    .img-landing {
+        width: 77vw;
+    }
+    .title-landing {
+        font-size: 40px;
+    }
+    .p-landing {
+        font-size: 20px;
+    }
+    .landing-2 {
+        width: 100%;
+    }
+}

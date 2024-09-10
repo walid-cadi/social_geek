@@ -1,17 +1,23 @@
-@media (max-width : 428px){
-    .friend{
-    flex-direction: column;
-    width: 100%;
+@media (max-width: 428px) {
+    .friend {
+        flex-direction: column;
+        width: 100%;
+        justify-content: start;
+        align-items: start;
+        padding-right: 10vw;
     }
-    .request{
-        width: 70vw;
+    .request {
+        width: 70vw !important;
     }
-    .nav-search{
-        width: 35vw;
-        height: 5vh;
+    .nav-search {
+        width: 50vw !important;
+        height: 5vh !important;
     }
-    .btn{
-        height: 6vh;
-        width: 12vw;
+    .btn4 {
+        height: 6vh !important;
+        width: 12vw !important;
+    }
+    .div-request{
+        width: 100vw !important; 
     }
 }
