@@ -3,7 +3,57 @@ import { createContext, useContext, useState } from "react";
 export const Mycontext = createContext();
 
 export const MyProvider = ({ children }) => {
-  const [dataProfile, setDataProfile] = useState([]);
+  const [dataProfile, setDataProfile] = useState([{bio
+    : 
+    "",
+    biography
+    : 
+    "",
+    birth
+    : 
+    "1974-10-27",
+    confirmPassword
+    : 
+    " ",
+    cover
+    : 
+    "",
+    email
+    : 
+    "vyqy@mailinator.com",
+    firstName
+    : 
+    "Exercitationem qui e",
+    firstTime
+    : 
+    false,
+    followers
+    : 
+    [],
+    follows
+    : 
+    [],
+    gendre
+    : 
+    "Male",
+    generateCode
+    : 
+    "2090",
+    groups
+    : 
+    [],
+    lastName
+    : 
+    "Aperiam minus illo b",
+    password
+    : 
+    "password",
+    post
+    : 
+    [],
+    profile
+    : 
+    " "}]);
   const [generatedCode, setGeneratedCode] = useState("");
   const [notificationMessage, setNotificationMessage] = useState("");
   const [notificationType, setNotificationType] = useState("");

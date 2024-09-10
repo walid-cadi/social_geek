@@ -59,6 +59,7 @@ export const Groups = () => {
         firstName: userData.firstName,
         lastName: userData.lastName,
       });
+      console.log(userData)
     } else {
       userData.groups.filter((e) => e.grpName != newTab[i].grpName);
       newTab[i].members = newTab[i].members.filter(
@@ -66,6 +67,7 @@ export const Groups = () => {
       );
     }
     console.log(userData);
+    console.log(newTab[i]);
   };
 
   return (
