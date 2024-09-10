@@ -85,13 +85,13 @@ if (newProfile) {
         </div>
       )}
 
-      <div className="flex items-center justify-center mt-10 flex-col">
-        <div className="otp-Form flex flex-col items-center">
+      <div className="flex items-center justify-center mt-10 flex-col ">
+        <div className="otp-Form flex flex-col items-center   w-[50vw] h-[50vh]">
           <span className="mainHeading">Enter OTP</span>
           <p className="otpSubheading">
-            We have sent a verification code to your mobile number
+            We have sent a verification code 
           </p>
-          <div className="max-w-md mx-auto border mt-20">
+          <div className="max-w-md mx-auto border mt-20  w-[50vw] h-[50vh] p-14 ">
             <div className="bg-white shadow-md rounded px-8 py-6">
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="otp">
