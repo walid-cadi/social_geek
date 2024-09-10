@@ -72,7 +72,7 @@ export const Navbar = () => {
           <FiUser className="text-gray-500 text-2xl" />
         </Link>
         <Link
-          to="/marketplace"
+          to="/market"
           className="text-center bg-gray-200 p-3 rounded-full"
         >
           <FiShoppingBag className="text-gray-500 text-2xl" />
@@ -84,7 +84,6 @@ export const Navbar = () => {
         <a
           href="#"
           className="relative text-center"
-          onClick={toggleNotifications}
         >
           <span className="absolute top-0 right-0 bg-yellow-400 h-2 w-2 rounded-full"></span>
           <FiBell className="text-2xl text-blue-600" />
@@ -123,9 +122,9 @@ export const Navbar = () => {
               <FaHome className="text-blue-600 text-2xl" />
               <span>Home</span>
             </Link>
-            <Link to="/stories" className="flex items-center space-x-2">
-              <FiZap className="text-gray-500 text-2xl" />
-              <span>Stories</span>
+            <Link to="/setting" className="flex items-center space-x-2">
+              <FiSettings className="text-gray-500 text-2xl" />
+              <span>Settings</span>
             </Link>
             <Link to="/groups" className="flex items-center space-x-2">
               <FiGlobe className="text-gray-500 text-2xl" />
@@ -135,7 +134,7 @@ export const Navbar = () => {
               <FiUser className="text-gray-500 text-2xl" />
               <span>Profile</span>
             </Link>
-            <Link to="/marketplace" className="flex items-center space-x-2">
+            <Link to="/market" className="flex items-center space-x-2">
               <FiShoppingBag className="text-gray-500 text-2xl" />
               <span>Marketplace</span>
             </Link>

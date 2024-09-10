@@ -79,7 +79,7 @@ const Setting = () => {
 };
   return (
     <>
-      <div className="w-[80vw] flex pl-7 pt-6 bg-white mt-5 ms-5"> 
+      <div className="w-[80vw] flex pl-7 pt-6 pb-10 bg-white mt-5 ms-5"> 
         <div className="flex flex-col gap-1 rounded-xl mx-2">
           <div className="flex gap-3 items-center">
            <FiSettings />   <h1 className="text-xl font-bold text-blue-900">User settings</h1>
