@@ -121,11 +121,12 @@ export const Post = () => {
             comments: []
         };
 
-        
+       
         setUserData((user)=>{
             return {...user, post:[...user.post, newPost]}
         })
-        console.log("aaaaaaa",userData.post);
+        console.log("aaaaaaa",userData.post);   
+        
         
         
         setPostContent("");
@@ -247,6 +248,7 @@ export const Post = () => {
             <div className="mt-6">
                 {userData.post.map((post, index) => (
                     <div key={index} className="bg-white p-4 rounded-lg shadow-md mb-4">
+                       
                         <div className="flex items-center mb-2">
                             <img src={userData?.profile} alt="User" className="w-12 h-12 rounded-full mr-2" />
                             <div>
