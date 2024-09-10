@@ -13,12 +13,10 @@ export const PostGroup = ({ isadmin, findgroup }) => {
   const [publicationDate, setPublicationDate] = useState("");
   const [posts, setPosts] = useState([]);
 
-  //*when the user types in the textarea
   const handleContentChange = (e) => {
     setPostContent(e.target.value);
   };
 
-  //* when the user select images
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     const imageUrls = files.map((file) => URL.createObjectURL(file));

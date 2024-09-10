@@ -11,7 +11,7 @@ const Home = () => {
     <div className='flex gap-x-5'>
       <div className='p-2'>
         <StoriesSection/>
-        <Post/>
+        <Post />
        </div>
        <div className=''>
         <RightBar/>
