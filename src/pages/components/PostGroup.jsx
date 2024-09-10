@@ -54,7 +54,7 @@ export const PostGroup = ({ isadmin, findgroup }) => {
     setSelectedImages([]);
     setPublicationDate("");
     findgroup.posts.push(newPost);
-    //console.log(findgroup)
+    console.log(findgroup)
   };
 
   const handleEditClick = (index) => {
@@ -191,7 +191,7 @@ export const PostGroup = ({ isadmin, findgroup }) => {
           <div key={index} className="bg-white p-4 rounded-lg shadow-md mb-4">
             <div className="flex items-center mb-2">
               <img
-                src={post.image}
+                src={post.images[0]}
                 alt="User"
                 className="w-12 h-12 rounded-full mr-2"
               />
